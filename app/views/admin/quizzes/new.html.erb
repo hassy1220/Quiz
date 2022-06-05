@@ -1,0 +1,17 @@
+<h1>クイズ内容投稿</h1>
+<%= form_with model: @quiz,url: admin_quizzes_path do |f| %>
+  <labe>クイズの種類</labe><br>
+  <%= f.text_field :name,placeholder:"クイズの太枠" %><br>
+  <%= fields_for :question do |f| %>
+  <labe>クイズの内容(タイトル)</labe><br>
+    <%= f.text_field :body,placeholder:"クイズの内容" %><br>
+  <% end %>
+  <%= fields_for :choice do |f| %>
+  <label>解答候補</label><br>
+    <%= f.text_field :body,placeholder:"クイズの選択候補" %><br>
+
+    <%= f.check_box :answer, {} , "true", "false" %><br>
+
+  <% end %>
+  <%= f.submit"送信" %><br>
+<% end %>
