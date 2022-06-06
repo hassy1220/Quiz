@@ -1,25 +1,28 @@
 class Admin::QuizzesController < ApplicationController
   def new
     @quiz = Quiz.new
+    @quizs = Quiz.all
   end
 
   def create
     quiz = Quiz.new(quiz_params)
-    question = Question.new(question_params)
-    choice = Choice.new(choice_params)
+    quiz.save
+    redirect_to new_admin_quiz_path
   end
 
   private
+  # def choice_collection_params
+  #   params.require(:form_choice_collection).permit(memos_attributes: :body)
+  # end
+
   def quiz_params
     params.require(:quiz).permit(:name)
   end
 
-  def question_params
-    params.require(:question).permit(:body)
-  end
+  
 
-  def choice_params
-    params.require(:choice).permit(:body,:answer)
-  end
+  # def choice_params
+  #   params.require(:choice).permit(:body,:answer)
+  # end
 
 end

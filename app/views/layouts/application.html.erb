@@ -6,18 +6,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
       <% if admin_signed_in? %>
-        <%= link_to"ログアウト",destroy_admin_session_path,method: :delete %>
+        <%= link_to"ゲストログアウト",destroy_admin_session_path,method: :delete %>
+        <%= link_to"クイズ太枠登録",new_admin_quiz_path %>
+        <%#= link_to"クイズ内容登録",new_admin_question_path %>
+        <%#= link_to"解答関連登録",new_admin_choice_path %>
 
       <% else %>
         <%= link_to"サインアップ",new_admin_registration_path %>
-        <%= link_to"ログイン",new_admin_session_path %>
+        <%= link_to"ゲストログイン",new_admin_session_path %>
       <% end %>
     </header>
     <%= yield %>
