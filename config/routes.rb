@@ -7,7 +7,12 @@ devise_for :admins, controllers: {
   sessions: 'admin/sessions'
 }
 namespace :admin do
- resources :quizzes,only:[:new,:create]
+ resources :quizzes,only:[:new,:create] do
+   resources :questions,only:[:new,:create] do
+     resources :choices,only:[:new,:create]
+   end
+ end
+   
 end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
