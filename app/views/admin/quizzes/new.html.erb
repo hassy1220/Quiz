@@ -7,11 +7,24 @@
     <%= f.text_field :body,placeholder:"クイズの内容" %><br>
   <% end %>
   <%= fields_for :choice do |f| %>
-  <label>解答候補</label><br>
-    <%= f.text_field :body,placeholder:"クイズの選択候補" %><br>
-
+  　<label>解答候補</label><br>
+    <%= f.text_field :body,placeholder:"クイズの選択候補" %>
     <%= f.check_box :answer, {} , "true", "false" %><br>
-
+  <% end %>
+  <%= fields_for :choice do |f| %>
+  　<label>解答候補</label><br>
+    <%= f.text_field :body,placeholder:"クイズの選択候補" %>
+    <%= f.check_box :answer, {} , "true", "false" %><br>
+  <% end %>
+  <%= fields_for :choice do |f| %>
+  　<label>解答候補</label><br>
+    <%= f.text_field :body,placeholder:"クイズの選択候補" %>
+    <%= f.check_box :answer, {} , "true", "false" %><br>
+  <% end %>
+  <%= fields_for :choice do |f| %>
+  　<label>解答候補</label><br>
+    <%= f.text_field :body,placeholder:"クイズの選択候補" %>
+    <%= f.check_box :answer, {} , "true", "false" %><br>
   <% end %>
   <%= f.submit"送信" %><br>
 <% end %>

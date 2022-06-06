@@ -4,7 +4,9 @@ class Admin::QuizzesController < ApplicationController
   end
 
   def create
-    
+    quiz = Quiz.new(quiz_params)
+    question = Question.new(question_params)
+    choice = Choice.new(choice_params)
   end
 
   private
