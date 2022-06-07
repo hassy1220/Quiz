@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>クイズ開始</h1>
+
+  <%= form_with url: public_quiz_answers_path(@quiz.id) do |f| %>
+    <div id = "first_question">
+       <%= render"public/questions/show",answer: @answer1,quiz: @quiz,question: @question,f: f %>
+    </div>
+    <div id = "second_question">
+      <%= render"public/questions/show",answer: @answer2,quiz: @quiz,question: @question,f: f %>
+    </div>
+    <div id = "third_question">
+      <%= render"public/questions/show",answer: @answer3,quiz: @quiz,question: @question,f: f %>
+    </div>
+    <input id="answer" type="hidden" value="[]" >
+  <% end %>
+</div>
+
+<%= javascript_pack_tag 'answers/answer' %>

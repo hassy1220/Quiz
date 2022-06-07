@@ -1,0 +1,3 @@
+$("#first_question").html("<%= j(render "public/questions/show",answer: @answer1,quiz: @quiz,question: @question,f: f ) %>");
+$("#second_question").html("<%= j(render "public/questions/show",answer: @answer2,quiz: @quiz,question: @question,f: f ) %>");
+$("#third_question").html("<%= j(render "public/questions/show",answer: @answer3,quiz: @quiz,question: @question,f: f ) %>");

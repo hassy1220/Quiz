@@ -20,7 +20,14 @@ devise_for :customers, skip: [:passwords], controllers: {
 }
 
 namespace :public do
- resources :quizzes,only:[:index]
+ resources :quizzes,only:[:index,:show,:create] do
+  resources :questions,only:[:show,:create] do
+    resources :choices,only:[:show]
+  end
+  get "next/:id",to: 'questions#step',as:"nextstep"
+  resources :answers,only:[:new,:create]
+ end
+
 end
 
 

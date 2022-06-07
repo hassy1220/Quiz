@@ -1,6 +1,8 @@
 <div class="container">
   <h1>クイズ一覧</h1>
   <% @quizs.each do |list| %>
-    <li><%= list.name %></li>
+    <%= link_to public_quiz_question_path(list.id, list.questions.first.id) do %>
+      <li><%= list.name %></li>
+    <% end %>
   <% end %>
 </div>
