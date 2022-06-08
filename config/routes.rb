@@ -26,6 +26,8 @@ namespace :public do
   end
   get "next/:id",to: 'questions#step',as:"nextstep"
   resources :answers,only:[:new,:create]
+  get "result",to: 'answers#result',as:"result"
+
  end
 
 end

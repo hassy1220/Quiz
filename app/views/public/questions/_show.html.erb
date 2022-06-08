@@ -1,8 +1,4 @@
 <%= link_to public_quiz_question_path(quiz.id,question.id, step: "next"),class:"btn btn-success#{answer.id}",remote: true do %>
   <%= answer.body %>
 <% end %>
-<input type="hidden" id = "answer" value= "{:answer_id=><%= answer.id %>,:quiz_id=><%= quiz.id %>}">
-
-<% if quiz.questions.last(2).first.id == question.id %>
- <%= f.submit"送信" %>
-<% end %>
+<input type="hidden" id = "answer" value= '{"answer_id":<%= answer.id %>,"question_id":<%= question.id %>}'>

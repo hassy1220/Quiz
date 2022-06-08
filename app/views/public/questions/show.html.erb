@@ -1,18 +1,33 @@
 <div class="container">
   <h1>クイズ開始</h1>
 
-  <%= form_with url: public_quiz_answers_path(@quiz.id) do |f| %>
-    <div id = "first_question">
-       <%= render"public/questions/show",answer: @answer1,quiz: @quiz,question: @question,f: f %>
-    </div>
-    <div id = "second_question">
-      <%= render"public/questions/show",answer: @answer2,quiz: @quiz,question: @question,f: f %>
-    </div>
-    <div id = "third_question">
-      <%= render"public/questions/show",answer: @answer3,quiz: @quiz,question: @question,f: f %>
-    </div>
-    <input id="answer" type="hidden" value="[]" >
+  <%= form_with url: public_quiz_answers_path(@quiz.id),id: "form_id" do |f| %>
+   <div id = "final_answer">
+      <div id = "title_question">
+        <%= render"public/questions/title",question: @question %>
+      </div>
+      <div id = "first_question">
+         <%= render"public/questions/show",answer: @answer1,quiz: @quiz,question: @question,f: f %>
+      </div>
+      <div id = "second_question">
+        <%= render"public/questions/show",answer: @answer2,quiz: @quiz,question: @question,f: f %>
+      </div>
+      <div id = "third_question">
+        <%= render"public/questions/show",answer: @answer3,quiz: @quiz,question: @question,f: f %>
+      </div>
+  </div>
+  <%= f.hidden_field :answer,id: "post_answer",value:"[]" %>
+
+   <%= f.submit"送信",style: "display: none",class:"submit" %>
+
   <% end %>
 </div>
 
 <%= javascript_pack_tag 'answers/answer' %>
+<script>
+//   $('#form_id').submit(function(){
+//     post_answer = $("#post_answer").val()
+//     alert(type_of post_answer);
+
+// })
+</script>
