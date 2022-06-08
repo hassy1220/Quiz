@@ -1,20 +1,22 @@
 <div class="container">
-  <h1>クイズ開始</h1>
+  <!--<h1>クイズ開始</h1>-->
 
   <%= form_with url: public_quiz_answers_path(@quiz.id),id: "form_id" do |f| %>
-   <div id = "final_answer">
-      <div id = "title_question">
-        <%= render"public/questions/title",question: @question %>
-      </div>
-      <div id = "first_question">
-         <%= render"public/questions/show",answer: @answer1,quiz: @quiz,question: @question,f: f %>
-      </div>
-      <div id = "second_question">
-        <%= render"public/questions/show",answer: @answer2,quiz: @quiz,question: @question,f: f %>
-      </div>
-      <div id = "third_question">
-        <%= render"public/questions/show",answer: @answer3,quiz: @quiz,question: @question,f: f %>
-      </div>
+  <div class="col">
+     <div id = "final_answer">
+        <div class="bg-danger text-center" id = "title_question">
+          <%= render"public/questions/title",question: @question %>
+        </div>
+        <div id = "first_question">
+           <%= render"public/questions/show",answer: @answer1,quiz: @quiz,question: @question,f: f %>
+        </div>
+        <div id = "second_question">
+          <%= render"public/questions/show",answer: @answer2,quiz: @quiz,question: @question,f: f %>
+        </div>
+        <div id = "third_question">
+          <%= render"public/questions/show",answer: @answer3,quiz: @quiz,question: @question,f: f %>
+        </div>
+     </div>
   </div>
   <%= f.hidden_field :answer,id: "post_answer",value:"[]" %>
 
