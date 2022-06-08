@@ -1,4 +1,16 @@
 <div class="container">
-  <h1>解答結果</h1>
-  <h2><%= @result.score %>点</h2>
+  <h1 class="text-center"><解答結果></h1>
+  <h2 class="text-center"><%= @result.score %>点</h2>
+
+  <% @quiz.questions.each.with_index do |correct_answer,i| %>
+     <div class="text-center bg-success m-5">
+       <table class="table">
+         <tr>
+           <th style="width: 10%"><%= i + 1 %></th>
+           <td style="width: 30%"><%= correct_answer.body %></td>
+           <td style="width: 60%"><%= correct_answer.choices.find_by(answer: true).body %></td>
+         </tr>
+       </table>
+     </div>
+  <% end %>
 </div>

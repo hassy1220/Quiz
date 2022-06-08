@@ -26,8 +26,8 @@ class Public::AnswersController < ApplicationController
   end
 
   def result
-    quiz = Quiz.find(params[:quiz_id])
-    @result = Answer.find_by(quiz_id: quiz)
+    @quiz = Quiz.find(params[:quiz_id])
+    @result = Answer.find_by(quiz_id: @quiz)
   end
 
 

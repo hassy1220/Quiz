@@ -1,8 +1,12 @@
 <div class="container">
   <h1>クイズ一覧</h1>
-  <% @quizs.each do |list| %>
-    <%= link_to public_quiz_question_path(list.id, list.questions.first.id) do %>
-      <li><%= list.name %></li>
-    <% end %>
-  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <% @quizs.each do |list| %>
+        <%= link_to public_quiz_question_path(list.id, list.questions.first.id) do %>
+          <li class="bg-secondary rounded-pill text-white text-center mb-3"><%= list.name %></li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

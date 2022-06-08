@@ -20,16 +20,9 @@
   </div>
   <%= f.hidden_field :answer,id: "post_answer",value:"[]" %>
 
-   <%= f.submit"送信",style: "display: none",class:"submit" %>
+   <%= f.submit"送信",style: "display: none",class:"submit btn btn-success" %>
 
   <% end %>
 </div>
 
 <%= javascript_pack_tag 'answers/answer' %>
-<script>
-//   $('#form_id').submit(function(){
-//     post_answer = $("#post_answer").val()
-//     alert(type_of post_answer);
-
-// })
-</script>
