@@ -11,7 +11,6 @@ class Public::AnswersController < ApplicationController
     @true_count = 0
     split_answer.each do |answer|
       json_answer = JSON.parse(answer)
-      # json_answer["answer_id"]
       question = quiz.questions.find_by(id: json_answer["question_id"])
       choice = question.choices.find_by(answer: true)
       if choice == question.choices.find_by(id: json_answer["answer_id"])

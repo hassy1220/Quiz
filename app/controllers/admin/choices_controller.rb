@@ -2,7 +2,7 @@ class Admin::ChoicesController < ApplicationController
   def new
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.find(params[:question_id])
-    @form = Form::ChoiceCollection.new
+    @form = Form::ChoiceCollection.new(session[:choices] || {})
     @questions = @question.choices
   end
 
@@ -17,11 +17,17 @@ class Admin::ChoicesController < ApplicationController
   end
 
   def create
+    @quiz = Quiz.find(params[:quiz_id])
+    @question = Question.find(params[:question_id])
     @form = Form::ChoiceCollection.new(choice_collection_params)
     if @form.save
       redirect_to root_path
     else
-      render :new
+      render action: :new
+      # debugger
+      # session[:choices] = @form.attributes.slice(*choice_collection_params.keys) # *2 フォームで渡された値のみ保存
+      # redirect_to new_admin_quiz_question_choice_path(@quiz.id,@question.id)
+      # debugger
     end
   end
 
@@ -32,13 +38,21 @@ class Admin::ChoicesController < ApplicationController
   end
 
   def update
-    
+    @question = Question.find(params[:question_id])
+    @quiz = Quiz.find(params[:quiz_id])
+    choice = Choice.find(params[:id])
+    choice.update(choice_params)
+    redirect_to admin_quiz_question_choice_path(@quiz.id,@question.id,@question.choices.ids)
   end
 
   private
 
   def choice_collection_params
     params.require(:form_choice_collection).permit(choices_attributes: [:body,:answer,:question_id])
+  end
+
+  def choice_params
+    params.require(:choice).permit(:body,:answer)
   end
 
 end

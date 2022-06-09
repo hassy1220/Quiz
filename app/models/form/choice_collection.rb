@@ -15,11 +15,7 @@ class Form::ChoiceCollection < Form::Base
   def save
     # 複数件全て保存できた場合のみ実行したいので、transactionを使用する
     Choice.transaction do
-
       self.choices.map(&:save!)
     end
-    #   return true
-    # rescue => e
-    #   return false
   end
 end

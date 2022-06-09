@@ -6,15 +6,20 @@
     <%= f.submit"登録" %>
   <% end %>
 
+
   <% @questions.each do |list| %>
-  　<%= link_to admin_quiz_question_choice_path(@quiz.id, list.id, list.choices.ids) do %>
-      <%= list.body %>
+    <% if list.choices.exists? %>
+ 　　<div class="aaa">
+    　<%= link_to admin_quiz_question_choice_path(@quiz.id, list.id, list.choices.ids) do %>
+        <%= list.body %>
+      <% end %>
+    <% else %>
+    </div>
+    <div class="ccc">
+      <%= link_to new_admin_quiz_question_choice_path(@quiz.id, list.id) do %>
+        <%= list.body %>
+      <% end %>
+    </div>
     <% end %>
   <% end %>
-
-  <%# @questions.each do |list| %>
-  　<%#= link_to new_admin_quiz_question_choice_path(@quiz.id, list.id) do %>
-      <%#= list.body %>
-    <%# end %>
-  <%# end %>
 </div>
