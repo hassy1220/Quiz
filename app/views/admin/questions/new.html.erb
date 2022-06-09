@@ -1,13 +1,20 @@
 <div class="container">
   <h1>クイズ内容登録</h1>
   <%= form_with model: @question,url: admin_quiz_questions_path(@quiz.id) do |f| %>
-    <%= f.text_field :body %>
+    <%= f.text_area :body,rows:"4" %>
+    <%= f.file_field :image,accept:"/png" %>
     <%= f.submit"登録" %>
   <% end %>
 
   <% @questions.each do |list| %>
-  　<%= link_to new_admin_quiz_question_choice_path(@quiz.id, list.id) do %>
+  　<%= link_to admin_quiz_question_choice_path(@quiz.id, list.id, list.choices.ids) do %>
       <%= list.body %>
     <% end %>
   <% end %>
+
+  <%# @questions.each do |list| %>
+  　<%#= link_to new_admin_quiz_question_choice_path(@quiz.id, list.id) do %>
+      <%#= list.body %>
+    <%# end %>
+  <%# end %>
 </div>

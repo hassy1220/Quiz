@@ -5,4 +5,5 @@ class Question < ApplicationRecord
   # def next(quiz)
   #   quiz.questions.where("id > ?", self.id).order("id ASC").first
   # end
+  has_one_attached :image
 end

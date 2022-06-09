@@ -28,9 +28,28 @@
         <%= link_to"管理者ログイン",new_admin_session_path %>
         <%= link_to"サインアップ",new_customer_registration_path %>
         <%= link_to"ログイン",new_customer_session_path %>
-
       <% end %>
     </header>
+    <main>
     <%= yield %>
+    </main>
+    <footer>
+        <div class='pb-3 pt-2'>
+      	   <div class='mx-auto'>
+          		<div class="text-center">
+          		  <i class="fab fa-twitter mr-3 fa-2x"></i>
+            		<i class="fab fa-facebook mr-3 fa-2x"></i>
+            		<i class="fab fa-instagram mr-3 fa-2x"></i>
+          		</div>
+          		<div class="mt-1 text-center">
+          		  <p><i class="fas fa-phone fa-fw"></i>xxx-xxxx-xxx</p>
+            	  <p><i class="fas fa-location-arrow fa-fw"></i>〇〇県〇〇市〇〇町〇丁目</p>
+              	<p><i class="fas fa-envelope fa-fw"></i>portofollio@mail.com</p>
+              	<p><%= link_to"お問合せ",class:"btn btn-success" %></p>
+          	  </div>
+            </div>
+        </div>
+    </footer>
+
   </body>
 </html>

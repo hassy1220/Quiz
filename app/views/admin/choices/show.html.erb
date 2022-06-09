@@ -1,0 +1,24 @@
+<div class="container">
+  <div>
+    <table class="table">
+      <tr>
+        <td>選択肢１</td>
+        <td><%= @first_choice.body %></td>
+        <td><%= @first_choice.answer %></td>
+        <td><%= link_to"編集",edit_admin_quiz_question_choice_path(@quiz.id,@question.id,@first_choice.id),class:"btn btn-success" %></td>
+      <tr>
+        <td>選択肢２</td>
+        <td><%= @second_choice.body %></td>
+        <td><%= @second_choice.answer %></td>
+        <td><%= link_to"編集",edit_admin_quiz_question_choice_path(@quiz.id,@question.id,@second_choice.id),class:"btn btn-success" %></td>
+      </tr>
+      <tr>
+        <td>選択肢３</td>
+        <td><%= @third_choice.body %></td>
+        <td><%= @third_choice.answer %></td>
+        <td><%= link_to"編集",edit_admin_quiz_question_choice_path(@quiz.id,@question.id,@third_choice.id),class:"btn btn-success" %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
