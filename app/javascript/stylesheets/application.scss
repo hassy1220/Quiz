@@ -17,7 +17,10 @@ body{
 }
 
 .image-wrap img{
-  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 128, .5);
+  max-height: 300px;
 }
 
 // footerをヘッダー下部に固定、高さ可変対応。
@@ -31,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-main {
+.main {
   flex: 1;
 }
 header {
@@ -40,4 +43,19 @@ header {
 footer {
   width: 100%;
   background-color: #CCFFFF;
+}
+
+
+.quiz_container{
+  display: flex;
+  flex-wrap: wrap;         /*折り返し有り・複数行*/
+}
+
+.quiz_title{
+  margin-right: 30px;
+  width: 200px;
+  height: 200px;
+  background-color: skyblue;
+  margin-bottom: 30px;
+  text-align: center;
 }

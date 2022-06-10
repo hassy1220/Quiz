@@ -1,25 +1,58 @@
-<div class="container">
-  <h1>クイズ内容登録</h1>
-  <%= form_with model: @question,url: admin_quiz_questions_path(@quiz.id) do |f| %>
-    <%= f.text_area :body,rows:"4" %>
-    <%= f.file_field :image,accept:"/png" %>
-    <%= f.submit"登録" %>
-  <% end %>
-
-
-  <% @questions.each do |list| %>
-    <% if list.choices.exists? %>
- 　　<div class="aaa">
-    　<%= link_to admin_quiz_question_choice_path(@quiz.id, list.id, list.choices.ids) do %>
-        <%= list.body %>
-      <% end %>
-    <% else %>
-    </div>
-    <div class="ccc">
-      <%= link_to new_admin_quiz_question_choice_path(@quiz.id, list.id) do %>
-        <%= list.body %>
-      <% end %>
-    </div>
+<div class="main">
+  <div class="container">
+    <h1>クイズ内容登録</h1>
+    <%= form_with model: @question,url: admin_quiz_questions_path(@quiz.id) do |f| %>
+      <%= f.text_area :body,rows:"4" %>
+      <%= f.file_field :image,accept:"/png" %>
+      <%= f.submit"登録" %>
     <% end %>
-  <% end %>
+
+　　<div>
+      <h3>クイズ内容一覧(選択作成ずみ)</h3>
+      <% @public_quiz.each do |question| %>
+        <%= link_to admin_quiz_question_choice_path(@quiz.id, question.id, question.choices.ids) do %>
+          <div class="image-wrap">
+            <%= question.body %><br>
+            <% if question.image.attached? %>
+              <%= image_tag(question.image) %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <h3>クイズ内容一覧(選択作成未実施)</h3>
+      <% @private_quiz.each do |question| %>
+        <%= link_to new_admin_quiz_question_choice_path(@quiz.id, question.id) do %>
+          <div class="image-wrap">
+            <%= question.body %><br>
+            <% if question.image.attached? %>
+              <%= image_tag(question.image) %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+
+   <!-- <%# @questions.each do |list| %>-->
+   <!--   <%# if list.choices.exists? %>-->
+   <!--　　<div class="aaa">-->
+   <!--   　<li>-->
+   <!--   　  <%#= link_to admin_quiz_question_choice_path(@quiz.id, list.id, list.choices.ids) do %>-->
+   <!--       <%#= list.body %>-->
+   <!--      <%# end %>-->
+   <!--     </li>-->
+   <!--   <%# else %>-->
+   <!--   </div>-->
+   <!--   <div class="ccc">-->
+   <!--     <li>-->
+   <!--      <%#= link_to new_admin_quiz_question_choice_path(@quiz.id, list.id) do %>-->
+   <!--       <%#= list.body %>-->
+   <!--      <%# end %>-->
+   <!--     </li>-->
+   <!--   </div>-->
+   <!--   <%# end %>-->
+   <!-- <%# end %>-->
+  </div>
 </div>

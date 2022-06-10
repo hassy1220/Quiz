@@ -1,12 +1,14 @@
-<div class="container">
-  <h1>クイズ一覧</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <% @quizs.each do |list| %>
-        <%= link_to public_quiz_question_path(list.id, list.questions.first.id) do %>
-          <li class="bg-secondary rounded-pill text-white text-center mb-3"><%= list.name %></li>
+<div class="main">
+  <div class="container">
+    <h1>クイズ一覧</h1>
+    <div class="row">
+      <div class="col quiz_container">
+        <% @quizs.each do |list| %>
+          <%= link_to public_quiz_question_path(list.id, list.questions.first.id) do %>
+            <div class="rounded quiz_title"><%= list.name %></div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

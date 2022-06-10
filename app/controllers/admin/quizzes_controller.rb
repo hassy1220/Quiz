@@ -2,6 +2,15 @@ class Admin::QuizzesController < ApplicationController
   def new
     @quiz = Quiz.new
     @quizs = Quiz.all
+    # @public_quiz = []
+    # @private_quiz = []
+    # @quizs.each do |quiz|
+    #   if quiz.questions.exists?
+    #     @public_quiz += quiz
+    #   else
+    #     @private_quiz += quiz
+    # end
+
   end
 
   def create
@@ -19,7 +28,7 @@ class Admin::QuizzesController < ApplicationController
     params.require(:quiz).permit(:name)
   end
 
-  
+
 
   # def choice_params
   #   params.require(:choice).permit(:body,:answer)

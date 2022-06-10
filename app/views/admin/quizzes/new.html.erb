@@ -1,14 +1,18 @@
-<div class="container">
-  <h1>クイズ内容投稿</h1>
-  <%= form_with model: @quiz,url: admin_quizzes_path do |f| %>
-    <labe>クイズの種類</labe><br>
-     <%= f.text_field :name,placeholder:"クイズの太枠" %><br>
-    <%= f.submit"送信" %><br>
-  <% end %>
-  
-  <% @quizs.each do |list| %>
-   <%= link_to new_admin_quiz_question_path(list.id) do %>
-    <%= list.name %>
-   <% end %>
-  <% end %>
+<div class="main">
+  <div class="container">
+    <h1>クイズ内容投稿</h1>
+    <%= form_with model: @quiz,url: admin_quizzes_path do |f| %>
+      <labe>クイズの種類</labe><br>
+       <%= f.text_field :name,placeholder:"クイズの太枠" %><br>
+      <%= f.submit"送信" %><br>
+    <% end %>
+
+    <% @quizs.each do |list| %>
+     <div>
+       <%= link_to new_admin_quiz_question_path(list.id) do %>
+        <%= list.name %>
+       <% end %>
+     </div>
+    <% end %>
+  </div>
 </div>

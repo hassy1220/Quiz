@@ -3,6 +3,16 @@ class Admin::QuestionsController < ApplicationController
      @quiz = Quiz.find(params[:quiz_id])
      @question = Question.new
      @questions = @quiz.questions
+
+     @public_quiz = []
+     @private_quiz = []
+     @quiz.questions.each do |question|
+       if question.choices.exists?
+         @public_quiz.push(question)
+       else
+         @private_quiz.push(question)
+       end
+     end
   end
 
   def create
