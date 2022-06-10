@@ -3,4 +3,5 @@ class Question < ApplicationRecord
   has_many:choices,dependent: :destroy
 
   has_one_attached :image
+  has_one :vest_answer
 end

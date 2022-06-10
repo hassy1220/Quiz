@@ -2,9 +2,11 @@
   <div class="container">
     <h1>クイズ内容登録</h1>
     <%= form_with model: @question,url: admin_quiz_questions_path(@quiz.id) do |f| %>
-      <%= f.text_area :body,rows:"4" %>
-      <%= f.file_field :image,accept:"/png" %>
-      <%= f.submit"登録" %>
+      <p>クエスチョン登録</p>
+      <p><%= f.text_area :body,rows:"4",class:"form-control" %></p>
+      <p><%= f.file_field :image,accept:"/png" %></p>
+
+      <%= f.submit"登録",class:"btn btn-success" %>
     <% end %>
 
 　　<div>

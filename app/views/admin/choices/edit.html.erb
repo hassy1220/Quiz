@@ -1,9 +1,11 @@
-<div class="container">
-  <h1>クイズ内容編集投稿</h1>
-  <%= form_with model: @choice,url: admin_quiz_question_choice_path(@quiz.id,@question.id,@choice.id) do |f| %>
-  <label>解答候補</label>
-    <%= f.text_field :body %><br>
-    答え(正解の場合はチェックを入れてください)<%= f.check_box :answer %><br>
-    <%= f.submit"送信" %><br>
-  <% end %>
+<div class="main">
+  <div class="container">
+    <h1>クイズ内容編集投稿</h1>
+    <%= form_with model: @choice,url: admin_quiz_question_choice_path(@quiz.id,@question.id,@choice.id) do |f| %>
+    <label>解答候補</label>
+      <%= f.text_field :body,class:"form-control" %><br>
+      答え(正解の場合はチェックを入れてください)<%= f.check_box :answer %><br>
+      <%= f.submit"送信" %><br>
+    <% end %>
+  </div>
 </div>

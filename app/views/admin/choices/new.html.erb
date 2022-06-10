@@ -1,12 +1,12 @@
 <div class="container">
   <h1>クイズ内容投稿</h1>
-  <%= form_with model: @form,url: admin_quiz_question_choices_path(@quiz.id,@question.id) do |f| %>
+  <%= form_with model: @form,url: admin_quiz_question_vest_answers_index_path(@quiz.id,@question.id) do |f| %>
   <label>解答候補</label>
     <%= f.fields_for :choices do |i| %>
-      <br><%= i.text_area :body,placeholder:"クイズの選択候補",rows:"4" %><br>
-      <%= i.check_box :answer, {} , "true", "false" %>
+      <br><%= i.text_area :body,placeholder:"クイズの選択候補",rows:"4",class:"form-control" %><br>
+      <%= i.check_box :answer, {} , "true", "false" %><br>
       <%= i.hidden_field :question_id,value: @question.id %>
     <% end %>
-    <%= f.submit"送信" %><br>
+    <%= f.submit"送信",class:"btn btn-success" %><br>
   <% end %>
 </div>

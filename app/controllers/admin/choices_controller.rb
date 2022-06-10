@@ -2,7 +2,7 @@ class Admin::ChoicesController < ApplicationController
   def new
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.find(params[:question_id])
-    @form = Form::ChoiceCollection.new(session[:choices] || {})
+    @form = Form::ChoiceCollection.new
     @questions = @question.choices
   end
 
@@ -14,6 +14,7 @@ class Admin::ChoicesController < ApplicationController
     @first_choice = Choice.find(choices[0].to_i)
     @second_choice = Choice.find(choices[1].to_i)
     @third_choice = Choice.find(choices[2].to_i)
+    @vest_answer = VestAnswer.new
   end
 
   def create
@@ -21,7 +22,13 @@ class Admin::ChoicesController < ApplicationController
     @question = Question.find(params[:question_id])
     @form = Form::ChoiceCollection.new(choice_collection_params)
     if @form.save
-      redirect_to root_path
+      # debugger
+      # vest_answer = VestAnswer.new(vest_answer_params)
+      # vest_answer.question_id = @question.id
+      if vest_answer.save
+        debugger
+        redirect_to root_path
+      end
     else
       render action: :new
       # debugger
@@ -50,6 +57,10 @@ class Admin::ChoicesController < ApplicationController
   def choice_collection_params
     params.require(:form_choice_collection).permit(choices_attributes: [:body,:answer,:question_id])
   end
+
+  # def vest_answer_params
+  #   params.require(:form_choice_collection).permit(vest_answer: [:description])
+  # end
 
   def choice_params
     params.require(:choice).permit(:body,:answer)

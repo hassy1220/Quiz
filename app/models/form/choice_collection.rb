@@ -1,6 +1,7 @@
 class Form::ChoiceCollection < Form::Base
   FORM_COUNT = 3
   attr_accessor :choices
+  # attr_accessor :vest_answer
 
   def initialize(attributes = {})
     super attributes
@@ -10,6 +11,7 @@ class Form::ChoiceCollection < Form::Base
   # # 上でsuper attributesとしているので必要
   def choices_attributes=(attributes)
     self.choices = attributes.map { |_, v|Choice.new(v) }
+    # self.vest_answer = attributes.map { |_, v|Choice.new(v) }
   end
 
   def save
