@@ -2,6 +2,21 @@ class Public::AnswersController < ApplicationController
   def new
   end
 
+  # def index
+  #   @customer = current_customer
+  #   @answers = @customer.answers
+  #   @only_answer = []
+  #   Quiz.order("created_at DESC").each do |quiz|
+  #     @only_answer << quiz.answers.order("created_at DESC").where(customer_id: @customer.id).first
+  #   end
+  #   @only_answer.shift
+  # end
+
+  # def show
+  #   @customer = current_customer
+  #   @answers = @customer.answers
+  # end
+
   def create
     answer = params[:answer]
     quiz = Quiz.find(params[:quiz_id])

@@ -1,0 +1,21 @@
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>マイページ</h1>
+        <% @only_answer.each do |answer| %>
+          <table class="table text-center">
+            <tr>
+              <th style="width: 50%">
+                <%= link_to public_customer_path(current_customer.id,key: answer.quiz.id) do %>
+                  <%= answer.quiz.name %>
+                <% end %>
+              </th>
+              <td style="width: 50%"><%= answer.score %>点</td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

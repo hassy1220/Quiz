@@ -21,7 +21,7 @@ devise_for :customers, skip: [:passwords], controllers: {
 }
 
 namespace :public do
- resources :customers,only:[:show]
+ resources :customers,only:[:show,:index]
  resources :quizzes,only:[:index,:show,:create] do
   resources :questions,only:[:show,:create] do
     resources :choices,only:[:show]
