@@ -12,9 +12,6 @@ class Public::CustomersController < ApplicationController
     Quiz.order("created_at DESC").each do |quiz|
       @only_answer << quiz.answers.order("created_at DESC").where(customer_id: @customer.id).first
     end
-    @only_answer.shift
-
-
-
+    @only_answer.delete(nil)
   end
 end
