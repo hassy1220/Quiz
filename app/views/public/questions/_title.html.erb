@@ -1,4 +1,4 @@
-<h4><%= safe_join(question.body.split("\n"),tag(:br)) %></h4>
+<h4 class="question_title"><%= safe_join(question.body.split("\n"),tag(:br)) %></h4>
 <% if question.image.attached? %>
 <div class="image-wrap text-center">
  <%= image_tag(question.image) %>

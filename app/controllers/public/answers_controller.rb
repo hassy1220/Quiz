@@ -20,18 +20,23 @@ class Public::AnswersController < ApplicationController
     end
     @score = @true_count.to_f / @question_count * 100
 
-    if current_customer.answers.exists?(quiz_id: quiz.id)
-      Answer.find(quiz.id).update(score: @score)
-      redirect_to public_quiz_result_path(quiz.id)
-    else
+    # if current_customer.answers.exists?(quiz_id: quiz.id)
+    #   Answer.find(quiz.id).update(score: @score)
+    #   redirect_to public_quiz_result_path(quiz.id)
+    # else
       Answer.create(customer_id: current_customer.id,score: @score,quiz_id: quiz.id)
       redirect_to public_quiz_result_path(quiz.id)
-    end
+    # end
   end
 
   def result
     @quiz = Quiz.find(params[:quiz_id])
-    @result = Answer.find_by(quiz_id: @quiz)
+    @result = Answer.where(quiz_id: @quiz).last
+  end
+
+  private
+  def answer_params
+
   end
 
 

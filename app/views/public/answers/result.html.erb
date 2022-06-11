@@ -1,16 +1,28 @@
-<div class="container">
-  <h1 class="text-center"><解答結果></h1>
-  <h2 class="text-center"><%= @result.score %>点</h2>
+<div class="main">
+  <div class="container">
+    <h1 class="text-center"><解答結果></h1>
+    <h2 class="text-center"><%= @result.score %>点</h2>
 
-  <% @quiz.questions.each.with_index do |correct_answer,i| %>
-     <div class="text-center bg-success m-5">
-       <table class="table">
-         <tr>
-           <th style="width: 10%"><%= i + 1 %></th>
-           <td style="width: 30%"><%= correct_answer.body %></td>
-           <td style="width: 60%"><%= correct_answer.choices.find_by(answer: true).body %></td>
-         </tr>
-       </table>
-     </div>
-  <% end %>
+    <% @quiz.questions.each.with_index do |correct_answer,i| %>
+       <div class="text-center bg-success m-5">
+         <table class="table">
+           <tr>
+             <th style="width: 10%"><%= i + 1 %></th>
+             <td style="width: 45%"><%= correct_answer.body %></td>
+             <td style="width: 45%"><%= correct_answer.choices.find_by(answer: true).body %></td>
+           </tr>
+
+           <tr>
+             <th class="bg-danger" style="width: 10%"></th>
+             <% if correct_answer.vest_answer.present? %>
+               <td class="bg-danger" style="width: 45%"><%= correct_answer.vest_answer.description %></td>
+             <% else %>
+               <td class="bg-danger" style="width: 45%">説明は更新待ちです。しばしお待ちください</td>
+             <% end %>
+               <td class="bg-danger" style="width: 45%"></td>
+           </tr>
+         </table>
+       </div>
+    <% end %>
+  </div>
 </div>

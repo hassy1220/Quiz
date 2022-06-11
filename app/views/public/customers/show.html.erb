@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>マイページ</h1>
-      <% @answers.each do |answer| %>
-        <table class="table text-center">
-          <tr>
-            <th style="width: 50%"><%= answer.quiz.name %></th>
-            <td style="width: 50%"><%= answer.score %>点</td>
-          </tr>
-        </table>
-      <% end %>
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>マイページ</h1>
+        <% @answers.each do |answer| %>
+          <table class="table text-center">
+            <tr>
+              <th style="width: 50%"><%= answer.quiz.name %></th>
+              <td style="width: 50%"><%= answer.score %>点</td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

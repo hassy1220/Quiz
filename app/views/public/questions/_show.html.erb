@@ -1,4 +1,5 @@
-<%= link_to public_quiz_question_path(quiz.id,question.id, step: "next"),class:"choice_select btn btn-success #{answer.id}",remote: true do %>
-  <%= answer.body %>
-<% end %>
-<input type="hidden" id = "answer" value= '{"answer_id":<%= answer.id %>,"question_id":<%= question.id %>}'>
+
+    <%= link_to public_quiz_question_path(quiz.id,question.id, step: "next"),class:"#{answer.id}",remote: true do %>
+      <%= answer.body %>
+    <% end %>
+    <input type="hidden" id = "answer" value= '{"answer_id":<%= answer.id %>,"question_id":<%= question.id %>}'>

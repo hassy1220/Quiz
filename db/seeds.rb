@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 ActiveStorage::AnalyzeJob.queue_adapter = :inline
 ActiveStorage::PurgeJob.queue_adapter = :inline
+
+Admin.create!(email:"test@test",password:111111)
+
 Quiz.create!(name: "Ruby基礎１")
 Question.create!(quiz_id: 1,body: "ローカル変数の記述として適切なものはどれ")
 Question.create!(quiz_id: 1,body: "予約後に該当するものはどれ？")
