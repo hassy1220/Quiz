@@ -3,7 +3,7 @@
       <%= form_with url: public_quiz_answers_path(@quiz.id),id: "form_id" do |f| %>
            <div id = "final_answer">
               <div class="row">
-                <div class="col-6 p-5 bg-secondary">
+                <div class="col-6 p-5">
                   <div id = "title_question">
                     <%= render"public/questions/title",question: @question %>
                   </div>

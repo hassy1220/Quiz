@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2022_06_10_114651) do
 
   create_table "choices", force: :cascade do |t|
     t.integer "question_id"
-    t.boolean "answer"
+    t.boolean "answer", default: false
     t.string "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

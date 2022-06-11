@@ -22,19 +22,10 @@ class Admin::ChoicesController < ApplicationController
     @question = Question.find(params[:question_id])
     @form = Form::ChoiceCollection.new(choice_collection_params)
     if @form.save
-      # debugger
-      # vest_answer = VestAnswer.new(vest_answer_params)
-      # vest_answer.question_id = @question.id
-      if vest_answer.save
-        debugger
-        redirect_to root_path
-      end
+      redirect_to admin_quiz_question_choice_path(@quiz.id,@question.id,@question.choices.ids)
     else
-      render action: :new
-      # debugger
-      # session[:choices] = @form.attributes.slice(*choice_collection_params.keys) # *2 フォームで渡された値のみ保存
-      # redirect_to new_admin_quiz_question_choice_path(@quiz.id,@question.id)
-      # debugger
+      flash[:danger] = "解答は３件全て記入してください"
+      redirect_to new_admin_quiz_question_choice_path(@quiz.id,@question.id)
     end
   end
 

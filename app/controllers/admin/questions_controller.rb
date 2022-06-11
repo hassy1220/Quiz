@@ -19,8 +19,12 @@ class Admin::QuestionsController < ApplicationController
     @quiz = Quiz.find(params[:quiz_id])
     question = Question.new(question_params)
     question.quiz_id = @quiz.id
-    question.save
-    redirect_to new_admin_quiz_question_path
+    if question.save
+      redirect_to new_admin_quiz_question_path
+    else
+      flash[:danger] = question.errors.full_messages
+      redirect_to new_admin_quiz_question_path(@quiz.id)
+    end
   end
 
   private

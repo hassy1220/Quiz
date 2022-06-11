@@ -1,37 +1,26 @@
 class Admin::QuizzesController < ApplicationController
   def new
     @quiz = Quiz.new
+    # (session[:quiz] || {})
     @quizs = Quiz.all
-    # @public_quiz = []
-    # @private_quiz = []
-    # @quizs.each do |quiz|
-    #   if quiz.questions.exists?
-    #     @public_quiz += quiz
-    #   else
-    #     @private_quiz += quiz
-    # end
-
   end
 
   def create
-    quiz = Quiz.new(quiz_params)
-    quiz.save
-    redirect_to new_admin_quiz_path
+    @quiz = Quiz.new(quiz_params)
+    if @quiz.save
+      redirect_to new_admin_quiz_path
+    else
+      # session[:quiz] = @quiz.attributes.slice(*quiz_params.keys)
+      flash[:danger] = @quiz.errors.full_messages
+      redirect_to new_admin_quiz_path
+    end
   end
 
   private
-  # def choice_collection_params
-  #   params.require(:form_choice_collection).permit(memos_attributes: :body)
-  # end
 
   def quiz_params
     params.require(:quiz).permit(:name)
   end
 
-
-
-  # def choice_params
-  #   params.require(:choice).permit(:body,:answer)
-  # end
 
 end

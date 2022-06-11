@@ -4,8 +4,11 @@ class Admin::VestAnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     answer = VestAnswer.new(vest_answer_params)
     answer.question_id = @question.id
-    debugger
-    answer.save
+    if answer.save
+    else
+      flash[:danger] = answer.errors.full_messages
+      redirect_to admin_quiz_question_choice_path(@quiz.id,@question.id,@question.choices.ids)
+    end
   end
   def edit
   end

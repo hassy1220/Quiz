@@ -1,5 +1,7 @@
 class Choice < ApplicationRecord
   belongs_to:question
+
+  validates :body,presence: :true
 #   validate :validate_true_unique
 
   # choicesのうちtrue
