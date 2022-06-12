@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container">
-    <h1 class="text-center"><解答結果></h1>
-    <h2 class="text-center"><%= @result.score %>点</h2>
+    <h1 class="text-center quiz_show"><解答結果></h1>
+    <h2 class="text-center quiz_show"><%= @result.score %>点</h2>
 
     <% @quiz.questions.each.with_index do |correct_answer,i| %>
        <div class="text-center bg-success m-5">

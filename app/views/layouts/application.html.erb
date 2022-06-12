@@ -12,12 +12,14 @@
 
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top ">
-        <div class="container-fluid m-3">
-            <div class="nav-header">
+        <div class="container-fluid">
+            <div class="nav-header d-flex align-items-center">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                aaaa
+                <i class="fas fa-book fa-2x m-2"></i>
               </button>
-              <%= link_to root_path do %>TOP<% end %>
+              <%= link_to root_path do %>
+                <%= image_tag "logo.png" %>
+              <% end %>
             </div>
             <div id="navbar" class="navbar-collapse collapse text-center">
                 <ul class="nav navbar-nav navbar-right">

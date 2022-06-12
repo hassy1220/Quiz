@@ -18,14 +18,15 @@ class Admin::ChoicesController < ApplicationController
   end
 
   def create
+    final_answer = params[:form_choice_collection][:answer]
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.find(params[:question_id])
-    @form = Form::ChoiceCollection.new(choice_collection_params)
+    @form = Form::ChoiceCollection.new(choice_collection_params,final_answer)
     if @form.save
       redirect_to admin_quiz_question_choice_path(@quiz.id,@question.id,@question.choices.ids)
     else
-      flash[:danger] = "解答は３件全て記入してください"
-      redirect_to new_admin_quiz_question_choice_path(@quiz.id,@question.id)
+      flash[:danger] = "解答は３件全て記入してください(正解は一つのみ(チェックは一つ))"
+      render :new
     end
   end
 
@@ -46,12 +47,8 @@ class Admin::ChoicesController < ApplicationController
   private
 
   def choice_collection_params
-    params.require(:form_choice_collection).permit(choices_attributes: [:body,:answer,:question_id])
+    params.require(:form_choice_collection).permit(choices_attributes: [:body,:question_id])
   end
-
-  # def vest_answer_params
-  #   params.require(:form_choice_collection).permit(vest_answer: [:description])
-  # end
 
   def choice_params
     params.require(:choice).permit(:body,:answer)

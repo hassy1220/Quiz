@@ -3,7 +3,7 @@
       <%= form_with url: public_quiz_answers_path(@quiz.id),id: "form_id" do |f| %>
            <div id = "final_answer">
               <div class="row">
-                <div class="col-6 p-5">
+                <div class="col-6 p-5 title_image">
                   <div id = "title_question">
                     <%= render"public/questions/title",question: @question %>
                   </div>
@@ -24,8 +24,9 @@
               </div>
             </div>
         <%= f.hidden_field :answer,id: "post_answer",value:"[]" %>
-
-        <%= f.submit"送信",style: "display: none",class:"submit btn btn-success" %>
+        <!--<div class="submit_btn">-->
+        <%= f.submit"送信",style: "display: none",class:"submit btn btn-success btn-lg" %>
+        <!--</div>-->
       <% end %>
     </div>
 </div>

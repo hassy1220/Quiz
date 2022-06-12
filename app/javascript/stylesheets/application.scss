@@ -40,20 +40,25 @@ body {
 }
 .main {
   flex: 1;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 header {
   width: 100%;
 }
 footer {
   width: 100%;
-  background-color: #CCFFFF;
+  background-color: #FF82B2	;
 }
 
 .quiz_container{
   display: flex;
   flex-wrap: wrap;         /*折り返し有り・複数行*/
   justify-content: center;
+}
 
+.quiz_show{
+  background-color: #DDDDDD;
 }
 
 .quiz_title{
@@ -79,7 +84,7 @@ footer {
 
 .question_field{
   height: 70vh;
-  background-color: #FFFF99;
+  background-color: #DDDDDD;
   padding: 20px;
   padding-top: 5vh;
   padding-bottom: 5vh;
@@ -124,6 +129,18 @@ footer {
 }
 
 nav{
-  background-color: #CCFFFF;
+  background-color: #FF82B2	;
 }
 
+.main{
+  background-image: url(../../assets/images/quiz_image.jpg);
+  background-size: cover;
+}
+
+.title_image{
+  background-color: #DDDDDD;
+}
+
+// .submit_btn{
+//   text-align: center;
+// }

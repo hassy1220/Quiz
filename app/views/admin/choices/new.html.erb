@@ -16,9 +16,21 @@
   <label>解答候補</label>
     <%= f.fields_for :choices do |i| %>
       <br><%= i.text_area :body,placeholder:"クイズの選択候補",rows:"4",class:"form-control" %><br>
-      <%#= i.check_box :answer, {} , "true", "false" %><br>
       <%= i.hidden_field :question_id,value: @question.id %>
     <% end %>
+
+
+    <%= f.radio_button :answer,"1" %>
+    <%= f.label(:answer, "1", value: @question.id)  %>
+    <%= f.radio_button :answer,"2" %>
+    <%= f.label(:answer, "2", value: @question.id) %>
+    <%= f.radio_button :answer,"3" %>
+    <%= f.label(:answer, "3", value: @question.id) %>
+
+
+
+
+
     <%= f.submit"送信",class:"btn btn-success" %><br>
   <% end %>
 </div>

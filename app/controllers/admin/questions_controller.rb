@@ -3,6 +3,7 @@ class Admin::QuestionsController < ApplicationController
      @quiz = Quiz.find(params[:quiz_id])
      @question = Question.new
      @questions = @quiz.questions
+    # @questions = @quiz.includes(:questions).all
 
      @public_quiz = []
      @private_quiz = []
