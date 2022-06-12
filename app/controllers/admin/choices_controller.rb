@@ -25,7 +25,7 @@ class Admin::ChoicesController < ApplicationController
     if @form.save
       redirect_to admin_quiz_question_choice_path(@quiz.id,@question.id,@question.choices.ids)
     else
-      flash[:danger] = "解答は３件全て記入してください(正解は一つのみ(チェックは一つ))"
+      flash.now[:danger] = "解答は３件全て記入してください(正解は一つのみ(チェックは一つ))"
       render :new
     end
   end
