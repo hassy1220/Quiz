@@ -1,4 +1,5 @@
 class Admin::QuestionsController < ApplicationController
+  before_action :move_to_signed_in
   # before_action :if_not_admin
   def new
      @quiz = Quiz.find(params[:quiz_id])
@@ -32,6 +33,13 @@ class Admin::QuestionsController < ApplicationController
   private
   def question_params
     params.require(:question).permit(:body,:image)
+  end
+
+  def move_to_signed_in
+    unless admin_signed_in?
+      # サインインしていないユーザーはログインページが表示される
+      redirect_to new_admin_session_path, notice: '管理者としてログインしてください！'
+    end
   end
 
   # private

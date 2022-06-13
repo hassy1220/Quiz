@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="container quiz_show">
+  <div class="container quiz_show pb-3">
       <div class="image-wrap text-center mb-3">
         <h3>選択肢確認画面</h3>
         <p>問題：<%= @question.body %></p>
@@ -45,6 +45,7 @@
               <p><%= @question.vest_answer.description %></p>
               <%= link_to"編集",edit_admin_quiz_question_vest_answer_path(@quiz.id,@question.id,@question.vest_answer.id),class:"btn btn-success" %>
             <% else %>
+
               <%= form_with model: @vest_answer,url: admin_quiz_question_vest_answers_path(@quiz.id,@question.id) do |f| %>
                 <%= f.text_area :description,rows:"3",class:"form-control" %><br>
                 <%= f.submit"送信",class:"btn btn-success" %>
