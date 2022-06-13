@@ -95,37 +95,47 @@ footer {
   border: 0.5rem solid;
 }
 
+// #first_question{
+// width: 300px;
+// height: 20vh;
+// }
 
+// #second_question{
+// width: 300px;
+// height: 20vh;
+// }
+
+// #third_question{
+// width: 300px;
+// height: 20vh;
+// }
 
 #first_question a{
-   display: block;
-  // height: 20vh;
-   font-size: 30px;
-   border: solid;
-   width: 300px;
-   text-align: center;
-   line-height: 20vh;
-   background-color: #FF99CC;
+  display: block;
+  font-size: 20px;
+  border: solid;
+  width: 300px;
+  text-align: center;
+  line-height: 20vh;
+  background-color: #FF99CC;
 }
 #second_question a{
-   display: block;
-  // height: 20vh;
-   font-size: 30px;
-   border: solid;
-   width: 300px;
-   text-align: center;
-   line-height: 20vh;
-   background-color: #99CCFF;
+  display: block;
+  font-size: 20px;
+  border: solid;
+  width: 300px;
+  text-align: center;
+  line-height: 20vh;
+  background-color: #99CCFF;
 }
 #third_question a{
-   display: block;
-  // height: 20vh;
-   font-size: 30px;
-   border: solid;
-   width: 300px;
-   text-align: center;
-   line-height: 20vh;
-   background-color: #CCFF99;
+  display: block;
+  font-size: 20px;
+  border: solid;
+  width: 300px;
+  text-align: center;
+  line-height: 20vh;
+  background-color: #CCFF99;
 }
 
 nav{
@@ -141,6 +151,11 @@ nav{
   background-color: #DDDDDD;
 }
 
-// .submit_btn{
-//   text-align: center;
-// }
+.submit_image{
+  background-image: url(../../assets/images/submit_image.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position : center;
+  height: 45vh;
+  width: 100%;
+}

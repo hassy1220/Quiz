@@ -1,5 +1,5 @@
 <div class="main d-flex align-items-center justify-content-center">
-    <div class="container">
+    <div class="container text-center">
       <%= form_with url: public_quiz_answers_path(@quiz.id),id: "form_id" do |f| %>
            <div id = "final_answer">
               <div class="row">
@@ -24,9 +24,11 @@
               </div>
             </div>
         <%= f.hidden_field :answer,id: "post_answer",value:"[]" %>
-        <!--<div class="submit_btn">-->
-        <%= f.submit"送信",style: "display: none",class:"submit btn btn-success btn-lg" %>
-        <!--</div>-->
+        
+          <div id="submit">
+            <%= f.submit"答えを確認しよう！",style: "display: none;margin: 0 auto;",class:"submit btn btn-success btn-lg" %>
+          </div>
+       
       <% end %>
     </div>
 </div>
