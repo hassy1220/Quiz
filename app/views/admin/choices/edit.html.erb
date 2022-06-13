@@ -4,8 +4,12 @@
     <%= form_with model: @choice,url: admin_quiz_question_choice_path(@quiz.id,@question.id,@choice.id) do |f| %>
     <h1>クイズ内容編集投稿</h1>
     <label>解答候補</label>
+      <% if @choice.answer == true %>
+        <h4 class="text-danger font-weight-bold">この枠は正解枠です</h4>
+      <% else %>
+        <h4 class="text-danger font-weight-bold">この枠は不正解枠です</h4>
+      <% end %>
       <%= f.text_field :body,class:"form-control" %><br>
-      答え(正解の場合はチェックを入れてください)<%= f.check_box :answer %><br>
       <%= f.submit"送信",class:"btn btn-success" %><br>
     <% end %>
   </div>

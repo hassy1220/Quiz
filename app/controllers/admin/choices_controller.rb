@@ -1,4 +1,5 @@
 class Admin::ChoicesController < ApplicationController
+  # before_action :if_not_admin
   def new
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.find(params[:question_id])
@@ -51,7 +52,11 @@ class Admin::ChoicesController < ApplicationController
   end
 
   def choice_params
-    params.require(:choice).permit(:body,:answer)
+    params.require(:choice).permit(:body)
   end
+
+  # def if_not_admin
+  #   redirect_to root_path unless current_user.admin?
+  # end
 
 end

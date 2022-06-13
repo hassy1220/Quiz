@@ -1,4 +1,6 @@
 class Admin::QuizzesController < ApplicationController
+  # before_action :move_to_signed_in, except: [:index]
+  # before_action :if_not_admin
   def new
     @quiz = Quiz.new
     # (session[:quiz] || {})
@@ -22,5 +24,15 @@ class Admin::QuizzesController < ApplicationController
     params.require(:quiz).permit(:name)
   end
 
+  # def move_to_signed_in
+  #   unless customer_signed_in?
+  #     # サインインしていないユーザーはログインページが表示される
+  #     redirect_to new_customer_session_path, notice: 'ログインしてください！'
+  #   end
+  # end
+  # private
+  # def if_not_admin
+  #   redirect_to root_path unless current_user.admin?
+  # end
 
 end

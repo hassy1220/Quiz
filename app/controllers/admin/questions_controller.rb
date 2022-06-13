@@ -1,4 +1,5 @@
 class Admin::QuestionsController < ApplicationController
+  # before_action :if_not_admin
   def new
      @quiz = Quiz.find(params[:quiz_id])
      @question = Question.new
@@ -32,4 +33,9 @@ class Admin::QuestionsController < ApplicationController
   def question_params
     params.require(:question).permit(:body,:image)
   end
+
+  # private
+  # def if_not_admin
+  #   redirect_to root_path unless current_user.admin?
+  # end
 end

@@ -1,5 +1,5 @@
 class Public::QuestionsController < ApplicationController
-
+  before_action :move_to_signed_in
   def show
     answer = params[:answer]
     @quiz = Quiz.find(params[:quiz_id])
@@ -25,9 +25,18 @@ class Public::QuestionsController < ApplicationController
     end
   end
 
-  def action
+  # def action
+  # end
+
+  # def create
+  # end
+
+  private
+  def move_to_signed_in
+    unless customer_signed_in?
+      # サインインしていないユーザーはログインページが表示される
+      redirect_to new_customer_session_path, notice: 'ログインしてください！'
+    end
   end
 
-  def create
-  end
 end

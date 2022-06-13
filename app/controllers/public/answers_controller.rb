@@ -2,21 +2,6 @@ class Public::AnswersController < ApplicationController
   def new
   end
 
-  # def index
-  #   @customer = current_customer
-  #   @answers = @customer.answers
-  #   @only_answer = []
-  #   Quiz.order("created_at DESC").each do |quiz|
-  #     @only_answer << quiz.answers.order("created_at DESC").where(customer_id: @customer.id).first
-  #   end
-  #   @only_answer.shift
-  # end
-
-  # def show
-  #   @customer = current_customer
-  #   @answers = @customer.answers
-  # end
-
   def create
     answer = params[:answer]
     quiz = Quiz.find(params[:quiz_id])
@@ -35,13 +20,8 @@ class Public::AnswersController < ApplicationController
     end
     @score = @true_count.to_f / @question_count * 100
 
-    # if current_customer.answers.exists?(quiz_id: quiz.id)
-    #   Answer.find(quiz.id).update(score: @score)
-    #   redirect_to public_quiz_result_path(quiz.id)
-    # else
       Answer.create(customer_id: current_customer.id,score: @score,quiz_id: quiz.id)
       redirect_to public_quiz_result_path(quiz.id)
-    # end
   end
 
   def result
