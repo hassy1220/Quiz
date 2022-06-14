@@ -1,8 +1,13 @@
 var ctx = document.getElementById('myChart');
-var answer1 = document.getElementById('answer1').value
-var answer2 = document.getElementById('answer2').value
-var answer3 = document.getElementById('answer3').value
-var answer4 = document.getElementById('answer4').value
+const sample1 = document.getElementById('answer');
+sample1.onclick = () => {
+    //２度押し防止の実装
+    sample1.disabled = true;
+    var answer1 = document.getElementById('answer1').value
+    var answer2 = document.getElementById('answer2').value
+    var answer3 = document.getElementById('answer3').value
+    var answer4 = document.getElementById('answer4').value
+};
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {

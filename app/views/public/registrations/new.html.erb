@@ -5,7 +5,8 @@
         <h2 class="quiz_show">Sign up</h2>
 
         <%= form_with model: @customer, url: customer_registration_path do |f| %>
-          <%= render "public/shared/error_messages", customer: @customer %>
+
+          <%= render "public/shared/error_messages", model: @customer %>
 
           <div class="field">
             <%= f.label :name,class:"text-white" %><br>
