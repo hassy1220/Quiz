@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      request: 要望
+    attributes:
+      request:
+        title: タイトル
+        content: 説明

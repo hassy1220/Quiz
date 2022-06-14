@@ -1,0 +1,40 @@
+<div class="main">
+  <div class="container text-center">
+    <p class="quiz_show">こういうクイズ欲しいって言うのがあれば、こちらから投稿ください</p>
+
+    <% flash.each do |message_type, messages| %>
+      <% if messages.class == Array %>
+        <% messages.each do |message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      <% else %>
+        <div class="alert alert-<%= message_type %>"><%= messages %></div>
+      <% end %>
+    <% end %>
+
+    <%= form_with model: @application,url: public_requests_path do |f| %>
+      <label class="text-white">タイトル</label>
+      <%= f.text_field :title,class:"form-control" %>
+      <label class="text-white">コンテンツ</label>
+      <%= f.text_area :content,rows:"3",class:"form-control" %>
+      <%= f.submit"送信",class:"btn btn-success" %>
+    <% end %>
+    <h1 class="quiz_show">みんなのリクエスト一覧</h1>
+    <table class="table quiz_show">
+      <tr>
+        <th>投稿者</th>
+        <th>タイトル</th>
+        <th>コンテンツ</th>
+      </tr>
+      <% @applications.each do |application| %>
+      <tr>
+        <td><%= application.customer.name %></td>
+        <td><%= application.title %></td>
+        <td><%= application.content %></td>
+      </tr>
+      <% end %>
+
+    </table>
+
+  </div>
+</div>
