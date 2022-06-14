@@ -1,6 +1,16 @@
 <div class="main">
-  <div class="container">
+  <div class="container text-center">
     <h1 class="text-center quiz_show"><解答結果></h1>
+    <% case @result.score %>
+    <% when 80..100 then %>
+      <%= image_tag "result_1.png" %>
+    <% when 60..80 then %>
+    　<%= image_tag "result_2.png" %>
+    <% when 35..60 then %>
+    　<%= image_tag "result_3.png" %>
+    <% when 0..35 then %>
+    　<%= image_tag "result_4.png" %>
+    <% end %>
     <h2 class="text-center quiz_show"><%= @result.score %>点</h2>
 
     <% @quiz.questions.each.with_index do |correct_answer,i| %>
@@ -8,7 +18,7 @@
          <table class="table">
            <tr>
              <th style="width: 10%"><%= i + 1 %></th>
-             <td style="width: 45%"><%= correct_answer.body %></td>
+             <td style="width: 45%"><%= correct_answer.body %><br><%= image_tag(correct_answer.image) %></td>
              <td style="width: 45%"><%= correct_answer.choices.find_by(answer: true).body %></td>
            </tr>
 

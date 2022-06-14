@@ -1,4 +1,5 @@
 class Public::QuizzesController < ApplicationController
+
   def index
     quizs = Quiz.all
     @quizs = quizs.select {|item| item.questions.count > 1 }
@@ -11,4 +12,6 @@ class Public::QuizzesController < ApplicationController
   #   # @question = Question.find(params[:question_id])
   #   # debugger
   # end
+  private
+
 end
