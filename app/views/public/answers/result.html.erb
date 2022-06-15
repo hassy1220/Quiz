@@ -26,7 +26,12 @@
          <table class="table">
            <tr>
              <th style="width: 10%"><%= i + 1 %></th>
-             <td style="width: 45%"><%= correct_answer.body %><br><%= image_tag(correct_answer.image) %></td>
+             <td style="width: 45%">
+               <%= correct_answer.body %><br>
+               <% if correct_answer.image.attached? %>
+                 <%= image_tag(correct_answer.image) %>
+               <% end %>
+             </td>
              <td style="width: 45%"><%= correct_answer.choices.find_by(answer: true).body %></td>
            </tr>
 
