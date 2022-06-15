@@ -5,6 +5,7 @@ const answer3 = document.getElementById('answer3').value;
 const answer4 = document.getElementById('answer4').value;
 
 var myChart = new Chart(ctx, {
+
     type: 'line',
     data: {
         labels: ['３回前', '２回前', '１回前', '最新'],
