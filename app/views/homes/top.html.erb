@@ -15,11 +15,11 @@
     <p class="text-white">railsのフレームワークに頼り切ってません？<br>Rubyの事ちゃんとわかってる？</p>
     <% if admin_signed_in? %>
       <%= link_to new_admin_quiz_path,class:"btn-lg hover4" do %>
-        <%= image_tag "quiz_charange.png" %>
+        <%= image_tag 'quiz_charange.png' %>
       <% end %>
     <% else %>
       <%= link_to public_quizzes_path,class:"btn-lg hover4" do %>
-        <%= image_tag "quiz_charange.png" %>
+        <%= image_tag 'quiz_charange.png' %>
       <% end %>
     <% end %>
   </div>
