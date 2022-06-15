@@ -12,6 +12,14 @@
     　<%= image_tag "result_4.png" %>
     <% end %>
     <h2 class="text-center quiz_show"><%= @result.score %>点</h2>
+    <div class="result_link">
+      <div>
+        <%= link_to"クイズ一覧",public_quizzes_path,class:"btn btn-success" %>
+      </div>
+      <div>
+        <%= link_to"マイページ",public_customers_path,class:"btn btn-success" %>
+      </div>
+    </div>
 
     <% @quiz.questions.each.with_index do |correct_answer,i| %>
        <div class="text-center bg-success m-5">

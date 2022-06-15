@@ -17,23 +17,28 @@
       <%= f.text_field :title,class:"form-control" %>
       <label class="text-white">コンテンツ</label>
       <%= f.text_area :content,rows:"3",class:"form-control" %>
-      <%= f.submit"送信",class:"btn btn-success" %>
+      <%= f.submit"送信",class:"btn btn-success mt-3" %>
     <% end %>
-    <h1 class="quiz_show">みんなのリクエスト一覧</h1>
+    <h1 class="quiz_show mt-3">みんなのリクエスト一覧</h1>
     <table class="table quiz_show">
       <tr>
         <th>投稿者</th>
         <th>タイトル</th>
         <th>コンテンツ</th>
       </tr>
-      <% @applications.each do |application| %>
-      <tr>
-        <td><%= application.customer.name %></td>
-        <td><%= application.title %></td>
-        <td><%= application.content %></td>
-      </tr>
+      <% if @applications.present? %>
+        <% @applications.each do |application| %>
+        <tr>
+          <td><%= application.customer.name %></td>
+          <td><%= application.title %></td>
+          <td><%= application.content %></td>
+        </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td>リクエストなし</td>
+        </tr>
       <% end %>
-
     </table>
 
   </div>

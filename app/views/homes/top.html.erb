@@ -1,9 +1,26 @@
 <div class="main">
   <div class="container top_image text-center">
+
+    <% flash.each do |message_type, messages| %>
+      <% if messages.class == Array %>
+        <% messages.each do |message| %>
+          <div class="alert alert-success"><%= message %></div>
+        <% end %>
+      <% else %>
+        <div class="alert alert-danger"><%= messages %></div>
+      <% end %>
+    <% end %>
+
     <h1 class="pt-5 text-white">Rubyの事ホントに知ってる？</h1>
     <p class="text-white">railsのフレームワークに頼り切ってません？<br>Rubyの事ちゃんとわかってる？</p>
-    <%= link_to public_quizzes_path,class:"btn-lg" do %>
-      <%= image_tag "quiz_charange.png" %>
+    <% if admin_signed_in? %>
+      <%= link_to new_admin_quiz_path,class:"btn-lg hover4" do %>
+        <%= image_tag "quiz_charange.png" %>
+      <% end %>
+    <% else %>
+      <%= link_to public_quizzes_path,class:"btn-lg hover4" do %>
+        <%= image_tag "quiz_charange.png" %>
+      <% end %>
     <% end %>
   </div>
 </div>

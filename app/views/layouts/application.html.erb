@@ -11,54 +11,40 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top ">
-        <div class="container-fluid">
-            <div class="nav-header d-flex align-items-center">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                <i class="fas fa-book fa-2x m-2"></i>
-              </button>
-              <%= link_to root_path do %>
-                <%= image_tag "logo.png" %>
-              <% end %>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse text-center">
-                <ul class="nav navbar-nav navbar-right">
-                    <% if admin_signed_in? %>
-                      <li><%= link_to"管理者ログアウト",destroy_admin_session_path,method: :delete %></li>
-                      <li><%= link_to"クイズ太枠登録",new_admin_quiz_path %></li>
-                    <% elsif customer_signed_in? %>
-                      <li><%= link_to"ログアウト",destroy_customer_session_path,method: :delete %></li>
-                      <li><%= link_to"クイズ一覧",public_quizzes_path %></li>
-                      <li><%= link_to"マイページ",public_customers_path %></li>
-                    <% else %>
-                      <li><%= link_to"クイズ一覧",public_quizzes_path %></li>
-                      <li><%= link_to"管理者ログイン",new_admin_session_path %></li>
-                      <li><%= link_to"サインアップ",new_customer_registration_path %></li>
-                      <li><%= link_to"ログイン",new_customer_session_path %></li>
-                    <% end %>
-                </ul>
-            </div>
-            <li><%= link_to"リクエスト枠",new_public_request_path %></li>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" >
+      <%= link_to root_path,class:"navbar-brand" do %>
+        <%= image_tag "logo.png",size:"300x40" %>
+      <% end %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto text-center">
+                <% if customer_signed_in? %>
+                  <li class="nav-item active mr-2"><%= link_to destroy_customer_session_path,method: :delete, class:"nav-link active menu-list" do %><i class="fas fa-sign-out-alt fa-fw"></i><br>ログアウト<% end %></li>
+                  <li class="nav-item mr-2"><%= link_to public_quizzes_path, class:"nav-link" do %><i class="fas fa-plus fa-fw"></i><br>クイズ一覧<% end %></li>
+                  <li class="nav-item mr-2"><%= link_to public_customers_path, class:"nav-link active menu-list" do %><i class="fas fa-parking fa-fw"></i><br>マイページ<% end %></li>
+                <% end %>
+                <% unless customer_signed_in? %>
+                  <% unless  admin_signed_in? %>
+                   <li class="nav-item mr-2"><%= link_to public_quizzes_path, class:"nav-link" do %><i class="fas fa-sign-in-alt fa-fw"></i></i><br>クイズ一覧<% end %></li>
+                   <li class="nav-item mr-2"><%= link_to new_admin_session_path, class:"nav-link" do %><i class="fas fa-sign-in-alt fa-fw"></i><br>管理者ログイン<% end %></li>
+                   <li class="nav-item mr-2"><%= link_to new_customer_registration_path, class:"nav-link" do %><i class="fas fa-parking fa-fw"></i><br>新規登録<% end %></li>
+                   <li class="nav-item"><%= link_to new_customer_session_path, class:"nav-link" do %><i class="fas fa-user fa-fw"></i><br>ログイン<% end %></li>
+
+                  <% end %>
+                <% end %>
+                <% if admin_signed_in? %>
+                  <li class="nav-item mr-2"><%= link_to destroy_admin_session_path,method: :delete, class:"nav-link" do %><i class="fas fa-user fa-fw"></i><br>管理者ログアウト<% end %></li>
+                  <li class="nav-item mr-2"><%= link_to new_admin_quiz_path, class:"nav-link" do %><i class="fas fa-parking fa-fw"></i><br>クイズ投稿<% end %></li>
+                <% end %>
+              </ul>
+      </div>
     </nav>
 
 
 
-    <!--<header class="mt-5">-->
-      <%# if admin_signed_in? %>
-        <%#= link_to"管理者ログアウト",destroy_admin_session_path,method: :delete %>
-        <%#= link_to"クイズ太枠登録",new_admin_quiz_path %>
-      <%# elsif customer_signed_in? %>
-        <%#= link_to"ログアウト",destroy_customer_session_path,method: :delete %>
-        <%#= link_to"クイズ一覧",public_quizzes_path %>
-        <%# link_to"マイページ",public_customer_path(current_customer.id) %>
-      <%# else %>
-        <%#= link_to"管理者サインアップ",new_admin_registration_path %>
-        <%#= link_to"管理者ログイン",new_admin_session_path %>
-        <%#= link_to"サインアップ",new_customer_registration_path %>
-        <%#= link_to"ログイン",new_customer_session_path %>
-      <%# end %>
-    <!--</header>-->
+
 
     <%= yield %>
     <footer>
@@ -73,7 +59,6 @@
           		  <p><i class="fas fa-phone fa-fw"></i>xxx-xxxx-xxx</p>
             	  <p><i class="fas fa-location-arrow fa-fw"></i>〇〇県〇〇市〇〇町〇丁目</p>
               	<p><i class="fas fa-envelope fa-fw"></i>portofollio@mail.com</p>
-              	<p><%= link_to"お問合せ",class:"btn btn-success" %></p>
           	  </div>
             </div>
         </div>

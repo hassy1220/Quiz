@@ -6,3 +6,9 @@ ja:
       request:
         title: タイトル
         content: 説明
+      quiz:
+        name: クイズ名
+      question:
+        body: クイズ内容
+      vest_answer:
+        description: 説明文
