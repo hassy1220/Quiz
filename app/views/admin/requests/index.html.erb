@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="container">
+    <h1 class="quiz_show">ユーザーからのリクエスト一覧</h1>
+    <table class="table quiz_show">
+      <tr>
+        <td></td>
+        <td>タイトル</td>
+        <td>コンテンツ</td>
+      </tr>
+      <% @request.each_with_index do |list, i| %>
+        <tr>
+          <td><%= i %></td>
+          <td><%= list.title %></td>
+          <td><%= list.content %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

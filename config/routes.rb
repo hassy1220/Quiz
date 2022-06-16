@@ -13,6 +13,7 @@ namespace :admin do
      resources :vest_answers,only:[:create,:edit,:update]
    end
  end
+ resources :requests,only:[:index]
 end
 
 devise_for :customers, skip: [:passwords], controllers: {
