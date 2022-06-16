@@ -28,8 +28,6 @@ Question.create!(quiz_id: 1,body: "以下メソッドの実行結果として正
 Question.find(9).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_8.png"), filename:"question_8.png")
 Question.create!(quiz_id: 1,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(10).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_9.png"), filename:"question_9.png")
-
-
 Choice.create!(question_id: 1,answer: false,body: "test-1")
 Choice.create!(question_id: 1,answer: false,body: "test?")
 Choice.create!(question_id: 1,answer: true,body: "test_1")
@@ -61,8 +59,6 @@ Choice.create!(question_id: 10,answer: false,body: "1.9")
 Choice.create!(question_id: 10,answer: true,body: "1")
 Choice.create!(question_id: 10,answer: false,body: "19")
 
-
-
 Quiz.create!(name: "Ruby基礎２")
 Question.create!(quiz_id: 2,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(11).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_11.png"), filename:"question_11.png")
@@ -84,7 +80,6 @@ Question.create!(quiz_id: 2,body: "以下メソッドの実行結果として正
 Question.find(19).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_19.png"), filename:"question_19.png")
 Question.create!(quiz_id: 2,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(20).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_20.png"), filename:"question_20.png")
-
 Choice.create!(question_id: 11,answer: true,body: "nill")
 Choice.create!(question_id: 11,answer: false,body: "3")
 Choice.create!(question_id: 11,answer: false,body: "NameError")
@@ -117,7 +112,6 @@ Choice.create!(question_id: 20,answer: false,body: "[2]")
 Choice.create!(question_id: 20,answer: true,body: "[2,3]")
 
 Quiz.create!(name: "Ruby基礎３")
-
 Question.create!(quiz_id: 3,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(21).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_21.png"), filename:"question_21.png")
 Question.create!(quiz_id: 3,body: "以下メソッドの実行結果として正しいものはどれ")
@@ -138,8 +132,6 @@ Question.create!(quiz_id: 3,body: "以下メソッドの実行結果として正
 Question.find(29).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_29.png"), filename:"question_29.png")
 Question.create!(quiz_id: 3,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(30).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_30.png"), filename:"question_30.png")
-
-
 Choice.create!(question_id: 21,answer: false,body: '[2,3]')
 Choice.create!(question_id: 21,answer: true,body: '[2,3,4]')
 Choice.create!(question_id: 21,answer: false,body: "[3]")
@@ -172,7 +164,6 @@ Choice.create!(question_id: 30,answer: true,body: "2")
 Choice.create!(question_id: 30,answer: false,body: "10")
 
 Quiz.create!(name: "Ruby基礎４")
-
 Question.create!(quiz_id: 4,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(31).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_31.png"), filename:"question_31.png")
 Question.create!(quiz_id: 4,body: "以下メソッドの実行結果として正しいものはどれ")
@@ -189,8 +180,6 @@ Question.create!(quiz_id: 4,body: "以下メソッドの実行結果として正
 Question.find(39).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_39.png"), filename:"question_39.png")
 Question.create!(quiz_id: 4,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(40).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_40.png"), filename:"question_40.png")
-
-
 Choice.create!(question_id: 31,answer: false,body: "false")
 Choice.create!(question_id: 31,answer: false,body: "1")
 Choice.create!(question_id: 31,answer: true,body: "true")
@@ -223,7 +212,6 @@ Choice.create!(question_id: 40,answer: false,body: "1")
 Choice.create!(question_id: 40,answer: false,body: "0")
 
 Quiz.create!(name: "Ruby基礎５")
-
 Question.create!(quiz_id: 5,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(41).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_41.png"), filename:"question_41.png")
 Question.create!(quiz_id: 5,body: "以下メソッドの実行結果として正しいものはどれ")
@@ -244,8 +232,6 @@ Question.create!(quiz_id: 5,body: "以下メソッドの実行結果として正
 Question.find(49).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_49.png"), filename:"question_49.png")
 Question.create!(quiz_id: 5,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(50).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_50.png"), filename:"question_50.png")
-
-
 Choice.create!(question_id: 41,answer: false,body: 'hash')
 Choice.create!(question_id: 41,answer: false,body: 'string')
 Choice.create!(question_id: 41,answer: true,body: "symbol")
@@ -298,7 +284,6 @@ Question.create!(quiz_id: 6,body: "以下メソッドの実行結果として正
 Question.find(59).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_59.png"), filename:"question_59.png")
 Question.create!(quiz_id: 6,body: "以下メソッドの実行結果として正しいものはどれ")
 Question.find(60).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_60.png"), filename:"question_60.png")
-
 Choice.create!(question_id: 51,answer: false,body: 'Encoding:Shift_JIS')
 Choice.create!(question_id: 51,answer: true,body: 'Encoding:UTF_8')
 Choice.create!(question_id: 51,answer: false,body: "Encoding:EUC_JP")
@@ -329,6 +314,48 @@ Choice.create!(question_id: 59,answer: false,body: "abczx")
 Choice.create!(question_id: 60,answer: false,body: "gab")
 Choice.create!(question_id: 60,answer: false,body: "efg")
 Choice.create!(question_id: 60,answer: true,body: "g")
+
+Quiz.create!(name: "Ruby基礎７")
+Question.create!(quiz_id: 7,body: "以下メソッドの実行結果として正しいものはどれ")
+Question.find(61).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_61.png"), filename:"question_61.png")
+Question.create!(quiz_id: 7,body: "以下メソッドの実行結果として正しいものはどれ")
+Question.find(62).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_62.png"), filename:"question_62.png")
+Question.create!(quiz_id: 7,body: "以下メソッドの実行結果として正しいものはどれ")
+Question.find(63).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_63.png"), filename:"question_63.png")
+Question.create!(quiz_id: 7,body: "以下メソッドの実行結果として正しいものはどれ")
+Question.find(64).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_64.png"), filename:"question_64.png")
+Question.create!(quiz_id: 7,body: "以下メソッドの実行結果として正しいものはどれ")
+Question.find(65).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_65.png"), filename:"question_65.png")
+Question.create!(quiz_id: 7,body: "以下メソッドの実行結果として正しいものはどれ")
+Question.find(66).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_66.png"), filename:"question_66.png")
+Question.create!(quiz_id: 7,body: "以下メソッドの実行結果として正しいものはどれ")
+Question.find(67).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_67.png"), filename:"question_67.png")
+Question.create!(quiz_id: 7,body: "以下メソッドの実行結果として正しいものはどれ")
+Question.find(68).image.attach(io: File.open("#{Rails.root}/db/fixtures/question_68.png"), filename:"question_68.png")
+Choice.create!(question_id: 61,answer: false,body: 'b897')
+Choice.create!(question_id: 61,answer: true,body: 'a898')
+Choice.create!(question_id: 61,answer: false,body: "b909")
+Choice.create!(question_id: 62,answer: false,body: "bzg")
+Choice.create!(question_id: 62,answer: true,body: 'ayg')
+Choice.create!(question_id: 62,answer: false,body: 'ayf')
+Choice.create!(question_id: 63,answer: false,body: "abcdefghi")
+Choice.create!(question_id: 63,answer: true,body: "3")
+Choice.create!(question_id: 63,answer: false,body: "d")
+Choice.create!(question_id: 64,answer: true,body: "true")
+Choice.create!(question_id: 64,answer: false,body: "3")
+Choice.create!(question_id: 64,answer: false,body: "abcdefghi")
+Choice.create!(question_id: 65,answer: false,body: "10000")
+Choice.create!(question_id: 65,answer: false,body: "99900")
+Choice.create!(question_id: 65,answer: true,body: "100000")
+Choice.create!(question_id: 66,answer: false,body: "true")
+Choice.create!(question_id: 66,answer: true,body: '["b","c","d","e"]')
+Choice.create!(question_id: 66,answer: false,body: "false")
+Choice.create!(question_id: 67,answer: true,body: '["a","b","c","d",5,6]')
+Choice.create!(question_id: 67,answer: false,body: '[5,6,"a","b","c","d"]')
+Choice.create!(question_id: 67,answer: false,body: '[5,6]')
+Choice.create!(question_id: 68,answer: true,body: '["a","b","c",4]')
+Choice.create!(question_id: 68,answer: false,body: '["a","b","c","d",3,4]')
+Choice.create!(question_id: 68,answer: false,body: '[3,4]')
 
 VestAnswer.create!(description: "ローカル変数は小文字かアンダースコアで始まる文字。アンダーバー以外の記号は不正です。",question_id: 1)
 VestAnswer.create!(description: "予約後一覧（１部）→nil,true,false,not,BEGIN,then,yield,while,when...etc。",question_id: 2)

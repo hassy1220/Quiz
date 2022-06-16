@@ -36,13 +36,12 @@
            </tr>
 
            <tr>
-             <th class="bg-danger" style="width: 10%"></th>
              <% if correct_answer.vest_answer.present? %>
-               <td class="bg-danger" style="width: 45%"><%= correct_answer.vest_answer.description %></td>
+               <td colspan="3" class="bg-danger" style="width: 45%"><%= correct_answer.vest_answer.description %></td>
              <% else %>
-               <td class="bg-danger" style="width: 45%">説明は更新待ちです。しばしお待ちください</td>
+               <td colspan="3" class="bg-danger" style="width: 45%">説明は更新待ちです。しばしお待ちください</td>
              <% end %>
-               <td class="bg-danger" style="width: 45%"></td>
+               <!--<td class="bg-danger" style="width: 45%"></td>-->
            </tr>
          </table>
        </div>
