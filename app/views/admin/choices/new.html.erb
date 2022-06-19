@@ -36,5 +36,4 @@
 <input type="hidden" id="quiz_id" value='<%= @quiz.id %>'>
 <input type="hidden" id="question_id" value='<%= @question.id %>'>
 
-<!--render後にurlが変わりルーティングエラーが出てしまう為、jsにてurlを変えている-->
 <%= javascript_pack_tag 'choices/new' %>
