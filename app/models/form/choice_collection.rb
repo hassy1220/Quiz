@@ -19,18 +19,15 @@ class Form::ChoiceCollection < Form::Base
   def save
   # 複数件全て保存できた場合のみ実行したいので、transactionを使用する
     Choice.transaction do
-
       if self.choices.pluck(:answer).count(true) != 1
         return false
       end
-      if self.choices.map(&:save!)
-      else
-      end
-
+      self.choices.map(&:save!)
     end
-      return true
-    rescue
-      # validates :description, presence: :trueに引っ掛かったら、resucue節でロールバックさせる
+  rescue
       return false
+  else
+  #     # validates :description, presence: :trueに引っ掛かったら、resucue節でロールバックさせる
+      return true
   end
 end

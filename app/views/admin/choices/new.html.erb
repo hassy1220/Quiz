@@ -1,36 +1,40 @@
-<div class="container">
-  <h1>クイズ内容投稿</h1>
+<div class="main">
+  <div class="container">
+    <h1 class="quiz_show">クイズ内容投稿</h1>
 
-  <% flash.each do |message_type, messages| %>
-    <% if messages.class == Array %>
-      <% messages.each do |message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% flash.each do |message_type, messages| %>
+      <% if messages.class == Array %>
+        <% messages.each do |message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      <% else %>
+        <div class="alert alert-<%= message_type %>"><%= messages %></div>
       <% end %>
-    <% else %>
-      <div class="alert alert-<%= message_type %>"><%= messages %></div>
-    <% end %>
-  <% end %>
-
-
-  <%= form_with model: @form,url: admin_quiz_question_choices_path(@quiz.id,@question.id) do |f| %>
-  <label>解答候補</label>
-    <%= f.fields_for :choices do |i| %>
-      <br><%= i.text_area :body,placeholder:"クイズの選択候補",rows:"4",class:"form-control" %><br>
-      <%= i.hidden_field :question_id,value: @question.id %>
     <% end %>
 
 
-    <%= f.radio_button :answer,"1" %>
-    <%= f.label(:answer, "1", value: @question.id)  %>
-    <%= f.radio_button :answer,"2" %>
-    <%= f.label(:answer, "2", value: @question.id) %>
-    <%= f.radio_button :answer,"3" %>
-    <%= f.label(:answer, "3", value: @question.id) %>
+    <%= form_with model: @form,url: admin_quiz_question_choices_path(@quiz.id,@question.id) do |f| %>
+    <label class="text-white">解答候補</label>
+      <%= f.fields_for :choices do |i| %>
+        <br><%= i.text_area :body,placeholder:"クイズの選択候補",rows:"4",class:"form-control" %><br>
+        <%= i.hidden_field :question_id,value: @question.id %>
+      <% end %>
 
 
+      <%= f.radio_button :answer,"1" %>
+      <%= f.label(:answer, "1", value: @question.id)  %>
+      <%= f.radio_button :answer,"2" %>
+      <%= f.label(:answer, "2", value: @question.id) %>
+      <%= f.radio_button :answer,"3" %>
+      <%= f.label(:answer, "3", value: @question.id) %>
 
-
-
-    <%= f.submit"送信",class:"btn btn-success" %><br>
-  <% end %>
+      <%= f.submit"送信",class:"btn btn-success" %><br>
+    <% end %>
+  </div>
 </div>
+
+<input type="hidden" id="quiz_id" value='<%= @quiz.id %>'>
+<input type="hidden" id="question_id" value='<%= @question.id %>'>
+
+<!--render後にurlが変わりルーティングエラーが出てしまう為、jsにてurlを変えている-->
+<%= javascript_pack_tag 'choices/new' %>
