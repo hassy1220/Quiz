@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="container">
+  <div class="container text-center">
     <h1 class="quiz_show">クイズ内容投稿</h1>
 
     <% flash.each do |message_type, messages| %>
@@ -20,13 +20,13 @@
         <%= i.hidden_field :question_id,value: @question.id %>
       <% end %>
 
-
+　　　<h5 class="quiz_show">正解の項目をクリックしてください(例(1番目→1))</h5>
       <%= f.radio_button :answer,"1" %>
-      <%= f.label(:answer, "1", value: @question.id)  %>
+      <%= f.label(:answer, "1", value: @question.id,class:"text-white")  %>
       <%= f.radio_button :answer,"2" %>
-      <%= f.label(:answer, "2", value: @question.id) %>
+      <%= f.label(:answer, "2", value: @question.id,class:"text-white") %>
       <%= f.radio_button :answer,"3" %>
-      <%= f.label(:answer, "3", value: @question.id) %>
+      <%= f.label(:answer, "3", value: @question.id,class:"text-white") %>
 
       <%= f.submit"送信",class:"btn btn-success" %><br>
     <% end %>
