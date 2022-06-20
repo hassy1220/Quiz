@@ -12,7 +12,7 @@
             <% end %>
           <% end %>
 
-          <%= form_with model: @question,url: admin_quiz_questions_path(@quiz.id) do |f| %>
+          <%= form_with model: @question,url: admin_quiz_questions_path(@quiz.id),method: :post do |f| %>
             <h1>クエスチョン一覧</h1>
             <p>クエスチョン登録</p>
             <p><%= f.text_area :body,rows:"4",class:"form-control" %></p>
@@ -46,7 +46,9 @@
             <% end %>
           <% end %>
         </div>
-
+        <div class="delete_quiz">
+          <%= link_to"削除",admin_quiz_path(@quiz.id),method: :delete,class:"btn btn-danger",data: {confirm: "削除してもよろしいでしょうか？"} %>
+        </div>
       </div>
     </div>
   </div>
