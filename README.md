@@ -1,24 +1,35 @@
-# README
+# サイト名：RubyQuiz
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+　*Rubyの基礎的なクイズアプリ*
+### サイトテーマ
+　*Rubyを勉強し始めた方に知識の確認も踏まえてチャレンジしていく*
 
-Things you may want to cover:
+#### テーマを選んだ理由
+  *Railsを勉強し簡単なECサイトなら、構築できる様になったが、Rubyの基礎知識が不足していると実感*
+  *フレームワーク(Rails)を使って実装しただけで、本当に知識が身についているのか不安になり、自分の確認も含めて実装しようと思った。*
+  *本サイトを経て多少の自信をつけてもらえれべいいなと思った。*
 
-* Ruby version
+##### ターゲットユーザ
+　*プログラミングを始めた方*
 
-* System dependencies
+### 主な利用シーン
+　*プログラミングの勉強を始めた方*
 
-* Configuration
+## 使用gem
+  　*devise--ログイン機能実装の為*
+  　*pry_rails---デバックツール*
+  　*devise-i18n---Railsを日本語で扱う為*
+  　*dotenv-rails---環境変数を扱う為*
+  　*mysql2---本番環境用のデータベースを利用する為*
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+- 外部API :Google Maps JavaScript API,Google Place API,Geocoding API
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
