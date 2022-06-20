@@ -57,6 +57,9 @@
           </div>
         </div>
       </div>
+      <div class="delete_question">
+        <%= link_to"削除",admin_quiz_question_path(@quiz.id,@question.id),method: :delete,class:"btn btn-danger",data: {confirm: "削除してもよろしいでしょうか？"} %>
+      </div>
   </div>
 </div>
 

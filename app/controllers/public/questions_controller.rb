@@ -4,7 +4,7 @@ class Public::QuestionsController < ApplicationController
     answer = params[:answer]
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.find(params[:id])
-    if @quiz.questions.last.id == @question.id
+    if @quiz.questions.select{|n| n.choices != []}.last.id == @question.id
       respond_to do |format|
         format.js {render 'public/questions/answer.js.erb'}
       end

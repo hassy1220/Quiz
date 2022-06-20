@@ -20,12 +20,24 @@ class Admin::QuestionsController < ApplicationController
     @quiz = Quiz.find(params[:quiz_id])
     question = Question.new(question_params)
     question.quiz_id = @quiz.id
-    if question.save
-      redirect_to new_admin_quiz_question_path
+    if @quiz.questions.count <= 10
+      if question.save
+        redirect_to new_admin_quiz_question_path
+      else
+        flash[:danger] = question.errors.full_messages
+        redirect_to new_admin_quiz_question_path(@quiz.id)
+      end
     else
-      flash[:danger] = question.errors.full_messages
+      flash[:danger] = "一つのクイズに登録できるのは10個までです"
       redirect_to new_admin_quiz_question_path(@quiz.id)
     end
+  end
+
+  def destroy
+    @quiz = Quiz.find(params[:quiz_id])
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to new_admin_quiz_question_path(@quiz.id)
   end
 
   def edit

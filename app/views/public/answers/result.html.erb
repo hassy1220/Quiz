@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <% @quiz.questions.each.with_index do |correct_answer,i| %>
+    <% @quiz.questions.select{|n| n.choices != []}.each.with_index do |correct_answer,i| %>
        <div class="text-center bg-success m-5">
          <table class="table">
            <tr>

@@ -8,7 +8,7 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 }
 namespace :admin do
  resources :quizzes,only:[:new,:create,:destroy] do
-   resources :questions,only:[:new,:create,:edit,:update] do
+   resources :questions,only:[:new,:create,:edit,:update,:destroy] do
      resources :choices,only:[:new,:create,:edit,:update,:show]
      resources :vest_answers,only:[:create,:edit,:update]
    end
