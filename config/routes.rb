@@ -7,8 +7,8 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: 'admin/sessions'
 }
 namespace :admin do
- resources :quizzes,only:[:new,:create] do
-   resources :questions,only:[:new,:create] do
+ resources :quizzes,only:[:new,:create,:destroy] do
+   resources :questions,only:[:new,:create,:edit,:update] do
      resources :choices,only:[:new,:create,:edit,:update,:show]
      resources :vest_answers,only:[:create,:edit,:update]
    end
@@ -23,12 +23,9 @@ devise_for :customers, skip: [:passwords], controllers: {
 
 namespace :public do
  resources :customers,only:[:show,:index]
- resources :quizzes,only:[:index,:show,:create] do
-  resources :questions,only:[:show,:create] do
-    resources :choices,only:[:show]
-  end
-  get "next/:id",to: 'questions#step',as:"nextstep"
-  resources :answers,only:[:new,:create]
+ resources :quizzes,only:[:index] do
+  resources :questions,only:[:show]
+  resources :answers,only:[:create]
   get "result",to: 'answers#result',as:"result"
  end
  resources :requests,only:[:new,:create]

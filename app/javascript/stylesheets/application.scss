@@ -175,3 +175,12 @@ nav{
   flex-wrap: wrap;         /*折り返し有り・複数行*/
   justify-content: space-between;
 }
+
+.quiz_show{
+  position:  relative;
+}
+.delete_quiz{
+  position:  absolute;
+  right:  50px;
+  top: 30px;
+}

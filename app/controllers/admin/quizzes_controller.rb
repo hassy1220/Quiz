@@ -12,10 +12,15 @@ class Admin::QuizzesController < ApplicationController
     if @quiz.save
       redirect_to new_admin_quiz_path
     else
-      # session[:quiz] = @quiz.attributes.slice(*quiz_params.keys)
       flash[:danger] = @quiz.errors.full_messages
       redirect_to new_admin_quiz_path
     end
+  end
+
+  def destroy
+    quiz = Quiz.find(params[:id])
+    quiz.destroy
+    redirect_to new_admin_quiz_path
   end
 
   private
@@ -30,9 +35,4 @@ class Admin::QuizzesController < ApplicationController
       redirect_to new_admin_session_path, notice: '管理者としてログインしてください！'
     end
   end
-  # private
-  # def if_not_admin
-  #   redirect_to root_path unless current_user.admin?
-  # end
-
 end

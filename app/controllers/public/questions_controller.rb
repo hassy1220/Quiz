@@ -25,11 +25,6 @@ class Public::QuestionsController < ApplicationController
     end
   end
 
-  # def action
-  # end
-
-  # def create
-  # end
 
   private
   def move_to_signed_in

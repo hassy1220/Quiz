@@ -1,6 +1,4 @@
 class Public::AnswersController < ApplicationController
-  def new
-  end
 
   def create
     answer = params[:answer]
