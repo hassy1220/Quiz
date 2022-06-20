@@ -30,6 +30,8 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             y: {
+                suggestedMin: 0,
+                suggestedMax: 100,
                 beginAtZero: true
             }
         }
