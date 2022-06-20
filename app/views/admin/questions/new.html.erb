@@ -1,7 +1,7 @@
-<div class="main">
-  <div class="container">
-    <div class="row">
-      <div class="col text-center quiz_show">
+<!--<div class="main">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col text-center quiz_show">-->
           <% flash.each do |message_type, messages| %>
             <% if messages.class == Array %>
               <% messages.each do |message| %>
@@ -46,8 +46,10 @@
             <% end %>
           <% end %>
         </div>
-
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="delete_quiz">
+          <%= link_to"削除",admin_quiz_path(@quiz.id),method: :delete,class:"btn btn-danger",data: {confirm: "削除してもよろしいでしょうか？"} %>
+        </div>
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
