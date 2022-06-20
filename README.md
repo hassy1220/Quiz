@@ -16,6 +16,9 @@
 ### 主な利用シーン
 　*プログラミングの勉強を始めた方*
 
+### ER図
+　![rubyクイズ drawio](https://user-images.githubusercontent.com/99014620/174524392-7afceae2-b8cf-446e-9b17-4959373c8cab.png)
+
 ## 使用gem
   　*devise--ログイン機能実装の為*
   　*pry_rails---デバックツール*
