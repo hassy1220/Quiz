@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2022_06_14_140129) do
 
   create_table "quizzes", force: :cascade do |t|
     t.string "name", null: false
+    t.boolean "status", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

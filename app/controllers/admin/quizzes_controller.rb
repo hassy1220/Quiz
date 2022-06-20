@@ -1,10 +1,10 @@
 class Admin::QuizzesController < ApplicationController
   before_action :move_to_signed_in
-  # before_action :if_not_admin
+
   def new
     @quiz = Quiz.new
-    # (session[:quiz] || {})
-    @quizs = Quiz.all
+    @private_quizs = Quiz.where(status: false)
+    @public_quizs = Quiz.where(status: true)
   end
 
   def create
@@ -23,10 +23,23 @@ class Admin::QuizzesController < ApplicationController
     redirect_to new_admin_quiz_path
   end
 
+  def edit
+    @quiz = Quiz.find(params[:id])
+  end
+
+  def update
+    @quiz = Quiz.find(params[:id])
+    if @quiz.update(quiz_params)
+      redirect_to new_admin_quiz_question_path(@quiz.id)
+    else
+      redirect_to edit_admin_quiz_path(@quiz.id)
+    end
+  end
+
   private
 
   def quiz_params
-    params.require(:quiz).permit(:name)
+    params.require(:quiz).permit(:name,:status)
   end
 
   def move_to_signed_in

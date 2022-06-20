@@ -1,0 +1,17 @@
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center quiz_show">
+        <h1>クイズ編集画面</h1>
+        <%= form_with model: @quiz,url: admin_quiz_path(@quiz.id),method: :patch do |f| %>
+          <%= f.text_field :name,class:"form-control" %>
+          <%= f.radio_button :status, :true %>
+          <%= f.label :status, "公開", {value: :true, style: "display: inline-block;"} %>
+          <%= f.radio_button :status, :false %>
+          <%= f.label :status, "非公開", {value: :false, style: "display: inline-block;"} %><br>
+          <%= f.submit"変更",class:"btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

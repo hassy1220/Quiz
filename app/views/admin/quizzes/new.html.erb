@@ -3,7 +3,7 @@
 
     <div class="row mb-3">
       <div class="col text-center">
-        <h1  class="quiz_show mt-3 mb-3">クイズ内容投稿</h1>
+        <h1 class="quiz_show mt-3 mb-3">クイズ内容投稿</h1>
 
         <% flash.each do |message_type, messages| %>
             <% if messages.class == Array %>
@@ -15,7 +15,6 @@
             <% end %>
         <% end %>
 
-
         <%= form_with model: @quiz,url: admin_quizzes_path do |f| %>
           <label class="text-white">クイズの種類</label><br>
            <%= f.text_field :name,placeholder:"クイズの太枠",class:"form-control" %><br>
@@ -23,9 +22,20 @@
         <% end %>
       </div>
     </div>
+    <h2 class="quiz_show mt-3 mb-3 text-center">公開中</h2>
     <div class="row">
       <div class="col quiz_container">
-        <% @quizs.each do |list| %>
+        <% @public_quizs.each do |list| %>
+          <%= link_to new_admin_quiz_question_path(list.id) do %>
+            <div class="rounded quiz_title"><%= list.name %></div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <h2 class="quiz_show mt-3 mb-3 text-center">非公開</h2>
+    <div class="row">
+      <div class="col quiz_container">
+        <% @private_quizs.each do |list| %>
           <%= link_to new_admin_quiz_question_path(list.id) do %>
             <div class="rounded quiz_title"><%= list.name %></div>
           <% end %>

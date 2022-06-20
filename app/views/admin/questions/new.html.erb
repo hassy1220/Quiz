@@ -49,6 +49,15 @@
         <div class="delete_quiz">
           <%= link_to"削除",admin_quiz_path(@quiz.id),method: :delete,class:"btn btn-danger",data: {confirm: "削除してもよろしいでしょうか？"} %>
         </div>
+        <div class="edit_quiz">
+            <% if @quiz.status == false %>
+              <span class="text-danger">このクイズは現在非公開です。<br>公開とするにはこちら↓</span><br>
+            <% else %>
+              <span class="text-success">このクイズは現在公開中です。<br>非公開とするにはこちら↓</span><br>
+            <% end %>
+          </span>
+          <%= link_to"編集",edit_admin_quiz_path(@quiz.id),class:"btn btn-success" %>
+        </div>
       </div>
     </div>
   </div>
