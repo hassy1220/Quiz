@@ -4,13 +4,18 @@ class Public::QuestionsController < ApplicationController
     answer = params[:answer]
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.find(params[:id])
+    if @question.choices == []
+      @question = @quiz.questions.select{|n| n.choices != []}.first
+    end
     if @quiz.questions.select{|n| n.choices != []}.last.id == @question.id
       respond_to do |format|
         format.js {render 'public/questions/answer.js.erb'}
       end
       return
     end
-    if @quiz.questions.first.id == @question.id
+
+    if @quiz.questions.select{|n| n.choices != []}.first.id == @question.id
+      @question = @quiz.questions.select{|n| n.choices != []}.first
       @answer1 = @question.choices.first
       @answer2 = @question.choices.second
       @answer3 = @question.choices.third
@@ -21,8 +26,8 @@ class Public::QuestionsController < ApplicationController
       @answer2 = @question.choices.second
       @answer3 = @question.choices.third
     else
-    #   redirect_to
     end
+
   end
 
 
