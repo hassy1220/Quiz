@@ -5,4 +5,5 @@ class Question < ApplicationRecord
   has_one :vest_answer
 
   validates :body, presence: :true
+
 end

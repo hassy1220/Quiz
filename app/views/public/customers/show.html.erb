@@ -2,26 +2,24 @@
   <div class="container">
     <div class="row">
       <div class="col quiz_show">
-        <% @answers.each do |answer| %>
+        <h1>マイページ</h1>
+        <p class="text-center">名前：<%= @customer.name %><%= link_to"編集",edit_public_customers_path,class:"btn btn-success ml-5" %></p>
+        <% @only_answer.each do |answer| %>
           <table class="table text-center">
             <tr>
-              <th style="width: 30%"><%= answer.quiz.name %></th>
-              <td style="width: 40%"><%= answer.score %>点</td>
-              <td style="width: 30%"><%= answer.created_at.strftime("%Y/%m/%d") %></td>
+              <th style="width: 50%">
+                <%= link_to public_detail_path(key: answer.quiz.id) do %>
+                  <%= answer.quiz.name %>
+                <% end %>
+              </th>
+              <td style="width: 50%"><%= answer.score %>点</td>
             </tr>
           </table>
         <% end %>
+        <div class="withdrawal_btn">
+          <%= link_to"退会",public_customers_path,method: :delete,data: {confirm: "本当に退会してもよろしいでしょうか？"},class:"btn btn-danger" %>
+        </div>
       </div>
     </div>
-    <h3 class="text-center quiz_show mt-2">得点推移</h3>
-    <canvas id="myChart" class="quiz_show"></canvas>
   </div>
 </div>
-<input type="hidden" id="answer1" value='<%= @chart_answer[0] %>'>
-<input type="hidden" id="answer2" value='<%= @chart_answer[1] %>'>
-<input type="hidden" id="answer3" value='<%= @chart_answer[2] %>'>
-<input type="hidden" id="answer4" value='<%= @chart_answer[3] %>'>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<%= javascript_pack_tag 'customers/show' %>

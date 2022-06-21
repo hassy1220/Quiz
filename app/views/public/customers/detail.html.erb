@@ -1,0 +1,27 @@
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col quiz_show">
+        <% @answers.each do |answer| %>
+          <table class="table text-center">
+            <tr>
+              <th style="width: 30%"><%= answer.quiz.name %></th>
+              <td style="width: 40%"><%= answer.score %>点</td>
+              <td style="width: 30%"><%= answer.created_at.strftime("%Y/%m/%d") %></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+    <h3 class="text-center quiz_show mt-2">得点推移</h3>
+    <canvas id="myChart" class="quiz_show"></canvas>
+  </div>
+</div>
+<input type="hidden" id="answer1" value='<%= @chart_answer[0] %>'>
+<input type="hidden" id="answer2" value='<%= @chart_answer[1] %>'>
+<input type="hidden" id="answer3" value='<%= @chart_answer[2] %>'>
+<input type="hidden" id="answer4" value='<%= @chart_answer[3] %>'>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<%= javascript_pack_tag 'customers/detail' %>

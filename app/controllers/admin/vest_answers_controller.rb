@@ -1,6 +1,6 @@
 class Admin::VestAnswersController < ApplicationController
   before_action :move_to_signed_in
-  # before_action :if_not_admin
+
   def create
     @quiz = Quiz.find(params[:quiz_id])
     @question = Question.find(params[:question_id])
@@ -41,8 +41,4 @@ class Admin::VestAnswersController < ApplicationController
     end
   end
 
-  # private
-  # def if_not_admin
-  #   redirect_to root_path unless current_user.admin?
-  # end
 end

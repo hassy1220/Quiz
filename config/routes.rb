@@ -22,7 +22,8 @@ devise_for :customers, skip: [:passwords], controllers: {
 }
 
 namespace :public do
- resources :customers,only:[:show,:index]
+ resource :customers,only:[:show,:edit,:update,:destroy]
+ get "customers/detail",to: 'customers#detail',as:"detail"
  resources :quizzes,only:[:index] do
   resources :questions,only:[:show]
   resources :answers,only:[:create]
