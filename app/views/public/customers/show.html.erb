@@ -2,8 +2,24 @@
   <div class="container">
     <div class="row">
       <div class="col quiz_show">
+
+        <% flash.each do |message_type, messages| %>
+            <% if messages.class == Array %>
+              <% messages.each do |message| %>
+                <div class="alert alert-<%= message_type %>"><%= message %></div>
+              <% end %>
+            <% else %>
+                <div class="alert alert-<%= message_type %>"><%= messages %></div>
+            <% end %>
+        <% end %>
+
         <h1>マイページ</h1>
-        <p class="text-center">名前：<%= @customer.name %><%= link_to"編集",edit_public_customers_path,class:"btn btn-success ml-5" %></p>
+        <p class="text-center">
+          名前：<%= @customer.name %>
+          <% if @customer.name != "guestuser" %>
+            <%= link_to"編集",edit_public_customers_path,class:"btn btn-success ml-5" %>
+          <% end %>
+        </p>
         <% @only_answer.each do |answer| %>
           <table class="table text-center">
             <tr>
@@ -17,7 +33,9 @@
           </table>
         <% end %>
         <div class="withdrawal_btn">
-          <%= link_to"退会",public_customers_path,method: :delete,data: {confirm: "本当に退会してもよろしいでしょうか？"},class:"btn btn-danger" %>
+          <% if @customer.name != "guestuser" %>
+            <%= link_to"退会",public_customers_path,method: :delete,data: {confirm: "本当に退会してもよろしいでしょうか？"},class:"btn btn-danger" %>
+          <% end %>
         </div>
       </div>
     </div>

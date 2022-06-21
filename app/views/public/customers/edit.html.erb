@@ -11,7 +11,7 @@
             <% else %>
                 <div class="alert alert-<%= message_type %>"><%= messages %></div>
             <% end %>
-          <% end %>
+        <% end %>
         <%= form_with model: @customer,url: public_customers_path do |f| %>
           <%= f.text_field :name,class:"form-control" %>
           <%= f.submit"変更",class:"btn btn-success mt-3 mb-3" %>
