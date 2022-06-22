@@ -17,8 +17,13 @@
 　*プログラミングの勉強を始めた方*
 
 ### ER図
-　![rubyクイズ drawio](https://user-images.githubusercontent.com/99014620/174524392-7afceae2-b8cf-446e-9b17-4959373c8cab.png)
+　![rubyクイズ](https://user-images.githubusercontent.com/99014620/175025552-3d0413f0-1d59-42a7-b106-8c104c5e4411.jpg)
 
+### アプリケーション詳細設計
+　*管理者*
+　　![rubyクイズ１](https://user-images.githubusercontent.com/99014620/175026797-8a82c421-2681-44f5-9f20-265c2bceda52.png)
+　*ユーザー*
+　　![rubyクイズ](https://user-images.githubusercontent.com/99014620/175026701-d646b860-cbbb-4e82-af7b-3215328136b9.png)
 ## 使用gem
   　*devise--ログイン機能実装の為*
   　*pry_rails---デバックツール*
