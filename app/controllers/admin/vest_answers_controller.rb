@@ -29,6 +29,12 @@ class Admin::VestAnswersController < ApplicationController
     end
   end
 
+  def destroy
+    vest_answer = VestAnswer.find(params[:id])
+    vest_answer.destroy
+    redirect_to request.referer
+  end
+
   private
   def vest_answer_params
     params.require(:vest_answer).permit(:description)

@@ -22,6 +22,12 @@ class Public::RequestsController < ApplicationController
     end
   end
 
+  def destroy
+    @post_request = Request.find(params[:id])
+    @post_request.destroy
+    redirect_to new_public_request_path
+  end
+
   private
   def request_params
     params.require(:request).permit(:title,:content)

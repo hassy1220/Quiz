@@ -47,6 +47,7 @@
             <% if @question.vest_answer.present? %>
               <p><%= @question.vest_answer.description %></p>
               <%= link_to"編集",edit_admin_quiz_question_vest_answer_path(@quiz.id,@question.id,@question.vest_answer.id),class:"btn btn-success" %>
+              <%= link_to"削除",admin_quiz_question_vest_answer_path(@quiz.id,@question.id,@question.vest_answer.id),method: :delete,class:"btn btn-danger" %>
             <% else %>
 
               <%= form_with model: @vest_answer,url: admin_quiz_question_vest_answers_path(@quiz.id,@question.id) do |f| %>

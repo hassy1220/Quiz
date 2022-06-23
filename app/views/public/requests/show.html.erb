@@ -14,6 +14,11 @@
           <p><%= @post_request.content %></p>
         </div>
       </div>
+      <% if @post_request.status == "wait" %>
+        <div class="delete_request">
+          <%= link_to"削除",public_request_path(@post_request.id),method: :delete,class:"btn btn-danger" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

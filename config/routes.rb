@@ -10,7 +10,7 @@ namespace :admin do
  resources :quizzes,only:[:new,:create,:destroy,:edit,:update] do
    resources :questions,only:[:new,:create,:edit,:update,:destroy] do
      resources :choices,only:[:new,:create,:edit,:update,:show]
-     resources :vest_answers,only:[:create,:edit,:update]
+     resources :vest_answers,only:[:create,:edit,:update,:destroy]
    end
  end
  resources :requests,only:[:index,:show,:update]
@@ -29,7 +29,7 @@ namespace :public do
   resources :answers,only:[:create]
   get "result",to: 'answers#result',as:"result"
  end
- resources :requests,only:[:new,:create,:show]
+ resources :requests,only:[:new,:create,:show,:destroy]
 end
 
 devise_scope :customer do
