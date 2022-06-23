@@ -1,0 +1,28 @@
+<div class="main">
+  <div class="container text-center">
+    <h1 class="quiz_show">リクエスト詳細(<span class="text-danger"><%= @post_request.status_i18n %></span>)</h1>
+    <div class="row quiz_show">
+      <div class="col-4">
+        <h2>タイトル</h2>
+        <div style="height:50vh;" class="d-flex align-items-center justify-content-center">
+          <p><%= @post_request.title %></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2>詳細</h2>
+        <div style="height:50vh;" class="d-flex align-items-center justify-content-center">
+          <p><%= @post_request.content %></p>
+        </div>
+      </div>
+      <div class="col-2">
+        <h2>状況</h2>
+        <div style="height:50vh;" class="d-flex align-items-center justify-content-center">
+          <%= form_with model: @post_request,url: admin_request_path(@post_request.id) do |f| %>
+            <%= f.select :status, Request.statuses.keys.map {|k| [I18n.t("enums.request.status.#{k}"), k]} %>
+            <%= f.submit"変更",class:"btn btn-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

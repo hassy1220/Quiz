@@ -4,6 +4,11 @@ class Public::RequestsController < ApplicationController
     @application = Request.new(session[:application] || {})
     @applications = Request.all
   end
+
+  def show
+    @post_request = Request.find(params[:id])
+  end
+
   def create
     @application = Request.new(request_params)
     @application.customer_id = current_customer.id

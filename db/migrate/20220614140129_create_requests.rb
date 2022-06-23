@@ -4,6 +4,7 @@ class CreateRequests < ActiveRecord::Migration[6.1]
       t.string :title,null: false
       t.text :content
       t.integer :customer_id
+      t.integer :status,default: 0,null: false
       t.timestamps
     end
   end

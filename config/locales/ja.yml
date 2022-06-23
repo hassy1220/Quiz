@@ -12,3 +12,9 @@ ja:
         body: クイズ内容
       vest_answer:
         description: 説明文
+  enums:
+    request:
+      status:
+        wait: 対応待ち
+        support: 対応中
+        complete: 完了

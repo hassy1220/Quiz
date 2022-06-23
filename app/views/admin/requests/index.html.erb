@@ -1,17 +1,25 @@
 <div class="main">
   <div class="container">
     <h1 class="quiz_show">ユーザーからのリクエスト一覧</h1>
-    <table class="table quiz_show">
+    <table class="table quiz_show text-center">
       <tr>
-        <td></td>
-        <td>タイトル</td>
-        <td>コンテンツ</td>
+        <th style="width:5%"></th>
+        <th style="width:20%">投稿者</th>
+        <th style="width:25%">タイトル</th>
+        <th style="width:40%">コンテンツ</th>
+        <th style="width:10%">状況</th>
       </tr>
-      <% @request.each_with_index do |list, i| %>
+      <% @post_request.each_with_index do |list, i| %>
         <tr>
-          <td><%= i %></td>
-          <td><%= list.title %></td>
+          <td><%= i+1 %></td>
+          <td><%= list.customer.name %></td>
+          <td>
+            <%= link_to admin_request_path(list.id) do %>
+              <%= list.title %>
+            <% end %>
+          </td>
           <td><%= list.content %></td>
+          <td><%= list.status_i18n %></td>
         </tr>
       <% end %>
     </table>

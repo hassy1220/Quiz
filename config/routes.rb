@@ -13,7 +13,7 @@ namespace :admin do
      resources :vest_answers,only:[:create,:edit,:update]
    end
  end
- resources :requests,only:[:index]
+ resources :requests,only:[:index,:show,:update]
 end
 
 devise_for :customers, skip: [:passwords], controllers: {
@@ -29,7 +29,7 @@ namespace :public do
   resources :answers,only:[:create]
   get "result",to: 'answers#result',as:"result"
  end
- resources :requests,only:[:new,:create]
+ resources :requests,only:[:new,:create,:show]
 end
 
 devise_scope :customer do

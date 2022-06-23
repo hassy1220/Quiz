@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2022_06_14_140129) do
     t.string "title", null: false
     t.text "content"
     t.integer "customer_id"
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

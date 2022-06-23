@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="container text-center">
+    <h1 class="quiz_show">リクエスト詳細(<span class="text-danger"><%= @post_request.status_i18n %></span>)</h1>
+    <div class="row quiz_show">
+      <div class="col-6">
+        <h2>タイトル</h2>
+        <div style="height:50vh;" class="d-flex align-items-center justify-content-center">
+          <p><%= @post_request.title %></p>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2>詳細</h2>
+        <div style="height:50vh;" class="d-flex align-items-center justify-content-center">
+          <p><%= @post_request.content %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

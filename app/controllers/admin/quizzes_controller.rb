@@ -29,7 +29,7 @@ class Admin::QuizzesController < ApplicationController
 
   def update
     @quiz = Quiz.find(params[:id])
-    if @quiz.questions.select{|n| n.choices != []}.count >= 10
+    if @quiz.questions.select{|n| n.choices != []}.count == 10
       if @quiz.update(quiz_params)
         redirect_to new_admin_quiz_question_path(@quiz.id)
       else
