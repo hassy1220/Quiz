@@ -5,15 +5,15 @@
           <% flash.each do |message_type, messages| %>
             <% if messages.class == Array %>
               <% messages.each do |message| %>
-                <div class="alert alert-<%= message_type %>"><%= message %></div>
+                <div class="alert alert-<%= message_type %> mt-5"><%= message %></div>
               <% end %>
             <% else %>
-                <div class="alert alert-<%= message_type %>"><%= messages %></div>
+                <div class="alert alert-<%= message_type %> mt-5"><%= messages %></div>
             <% end %>
           <% end %>
 
           <%= form_with model: @question,url: admin_quiz_questions_path(@quiz.id),method: :post do |f| %>
-            <h1>クエスチョン一覧</h1>
+            <h1 class="mt-5">クエスチョン一覧</h1>
             <p>クエスチョン登録</p>
             <p><%= f.text_area :body,rows:"4",class:"form-control" %></p>
             <p><%= f.file_field :image,accept:"/png" %></p>
@@ -51,9 +51,9 @@
         </div>
         <div class="edit_quiz">
             <% if @quiz.status == false %>
-              <span class="text-danger">このクイズは現在非公開です。<br>公開とするにはこちら↓</span><br>
+              <span class="text-danger">このクイズは現在非公開です。</span>
             <% else %>
-              <span class="text-success">このクイズは現在公開中です。<br>非公開とするにはこちら↓</span><br>
+              <span class="text-success">このクイズは現在公開中です。</span>
             <% end %>
           </span>
           <%= link_to"編集",edit_admin_quiz_path(@quiz.id),class:"btn btn-success" %>

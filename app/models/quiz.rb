@@ -3,4 +3,5 @@ class Quiz < ApplicationRecord
   has_many:answers,dependent: :destroy
 
   validates :name,presence: true
+
 end

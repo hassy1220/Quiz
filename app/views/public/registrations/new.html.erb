@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container">
     <div class="row">
-      <div class="col-6 offset-3">
+      <div class="col-6 offset-3 text-center">
         <h2 class="quiz_show">Sign up</h2>
 
         <%= form_with model: @customer, url: customer_registration_path do |f| %>
@@ -21,7 +21,7 @@
           <div class="field">
             <%= f.label :password,class:"text-white" %>
             <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <em class="text-white">(<%= @minimum_password_length %> characters minimum)</em>
             <% end %><br />
             <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
           </div>
@@ -32,9 +32,12 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Sign up",class:"btn btn-success" %>
+            <%= f.submit "Sign up",class:"btn btn-success mt-3 mb-3" %>
           </div>
         <% end %>
+        <div class="text-center">
+          <%= render "public/shared/links" %>
+        </div>
       </div>
     </div>
   </div>

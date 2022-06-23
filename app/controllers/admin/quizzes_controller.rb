@@ -29,10 +29,21 @@ class Admin::QuizzesController < ApplicationController
 
   def update
     @quiz = Quiz.find(params[:id])
-    if @quiz.update(quiz_params)
-      redirect_to new_admin_quiz_question_path(@quiz.id)
+    if @quiz.questions.select{|n| n.choices != []}.count >= 10
+      if @quiz.update(quiz_params)
+        redirect_to new_admin_quiz_question_path(@quiz.id)
+      else
+        flash[:danger] = @quiz.errors.full_messages
+        redirect_to edit_admin_quiz_path(@quiz.id)
+      end
     else
-      redirect_to edit_admin_quiz_path(@quiz.id)
+      if @quiz.update(name: params[:quiz][:name])
+        flash[:danger] = "※公開するには問題を１０個作成してください"
+        redirect_to new_admin_quiz_question_path(@quiz.id)
+      else
+        flash[:danger] = @quiz.errors.full_messages
+        redirect_to edit_admin_quiz_path(@quiz.id)
+      end
     end
   end
 

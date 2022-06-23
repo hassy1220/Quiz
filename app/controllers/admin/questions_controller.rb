@@ -20,7 +20,7 @@ class Admin::QuestionsController < ApplicationController
     @quiz = Quiz.find(params[:quiz_id])
     question = Question.new(question_params)
     question.quiz_id = @quiz.id
-    if @quiz.questions.count <= 10
+    if @quiz.questions.count <= 9
       if question.save
         redirect_to new_admin_quiz_question_path
       else

@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container">
     <div class="row">
-      <div class="col-6 offset-3">
+      <div class="col-6 offset-3 text-center">
         <% flash.each do |message_type, messages| %>
           <% if messages.class == Array %>
             <% messages.each do |message| %>
@@ -11,9 +11,6 @@
             <div class="alert alert-danger"><%= messages %></div>
           <% end %>
         <% end %>
-
-
-
         <h2 class="quiz_show">Log in</h2>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -28,9 +25,12 @@
           </div>
 
           <div class="actions">
-            <%= f.submit "Log in",class:"btn btn-success" %>
+            <%= f.submit "Log in",class:"btn btn-success mt-3 mb-3" %>
           </div>
         <% end %>
+        <div class="text-center">
+          <%= render "public/shared/links" %>
+        </div>
       </div>
     </div>
   </div>
