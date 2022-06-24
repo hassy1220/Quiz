@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 2022_06_14_140129) do
   end
 
   create_table "answers", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "score"
-    t.integer "quiz_id"
+    t.integer "customer_id", null: false
+    t.integer "score", null: false
+    t.integer "quiz_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -106,16 +106,16 @@ ActiveRecord::Schema.define(version: 2022_06_14_140129) do
 
   create_table "requests", force: :cascade do |t|
     t.string "title", null: false
-    t.text "content"
-    t.integer "customer_id"
+    t.text "content", null: false
+    t.integer "customer_id", null: false
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "vest_answers", force: :cascade do |t|
-    t.integer "question_id"
-    t.string "description"
+    t.integer "question_id", null: false
+    t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
