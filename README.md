@@ -21,13 +21,13 @@
 
 ### アプリケーション詳細設計
 　*管理者*
-　　[rubyクイズアプリケーション詳細設計.pdf](https://github.com/hassy1220/Quiz/files/8973167/ruby.pdf)
+　　![ribyクイズ詳細設計](https://user-images.githubusercontent.com/99014620/175464444-babf02f4-362d-4391-83b5-a4792d34d361.png)
 
 　*ユーザー*
-　　[rubyクイズアプリケーション詳細設計２.pdf](https://github.com/hassy1220/Quiz/files/8973170/ruby.pdf)
+　　![rubyクイズ詳細設計２](https://user-images.githubusercontent.com/99014620/175464476-b21a7615-bc40-488b-96f0-d6d73e37dab0.png)
 
 ### テーブル定義書
-　  [Rubyテーブル定義書.pdf](https://github.com/hassy1220/Quiz/files/8973178/Ruby.pdf)
+　  ![rubyクイズテーブル定義書](https://user-images.githubusercontent.com/99014620/175464541-1c5055a3-db90-4e52-b3fa-f18c5a3eed63.png)
 
 ### 使用gem
   　*devise--ログイン機能実装の為*
