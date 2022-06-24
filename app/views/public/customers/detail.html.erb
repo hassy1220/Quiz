@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col quiz_show">
-        <% @answers.each do |answer| %>
+        <% @answers.each.with_index do |answer,i| %>
           <table class="table text-center">
             <tr>
               <th style="width: 30%"><%= answer.quiz.name %></th>
@@ -11,6 +11,7 @@
             </tr>
           </table>
         <% end %>
+        <%= paginate @answers %>
       </div>
     </div>
     <h3 class="text-center quiz_show mt-2">得点推移</h3>

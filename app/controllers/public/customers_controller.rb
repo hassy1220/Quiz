@@ -13,7 +13,7 @@ class Public::CustomersController < ApplicationController
 
   def detail
     @customer = current_customer
-    @answers = @customer.answers.where(quiz_id: params[:key].to_i).order("created_at DESC")
+    @answers = @customer.answers.where(quiz_id: params[:key].to_i).page(params[:page]).per(4).order("created_at DESC")
     @chart_answer = @answers.map{|answer|answer.score}
   end
 

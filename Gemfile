@@ -60,6 +60,7 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'dotenv-rails'
 gem 'enum_help'
+gem 'kaminari'
 group :production do
   gem 'mysql2'
 end
