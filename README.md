@@ -17,14 +17,19 @@
 　*プログラミングの勉強を始めた方*
 
 ### ER図
-　![rubyクイズ](https://user-images.githubusercontent.com/99014620/175025552-3d0413f0-1d59-42a7-b106-8c104c5e4411.jpg)
+　![rubyクイズ drawio](https://user-images.githubusercontent.com/99014620/175463173-55f39ebf-ee6f-4769-85a1-422192e0dabb.png)
 
 ### アプリケーション詳細設計
 　*管理者*
-　　![rubyクイズ１](https://user-images.githubusercontent.com/99014620/175026797-8a82c421-2681-44f5-9f20-265c2bceda52.png)
+　　[rubyクイズアプリケーション詳細設計.pdf](https://github.com/hassy1220/Quiz/files/8973167/ruby.pdf)
+
 　*ユーザー*
-　　![rubyクイズ](https://user-images.githubusercontent.com/99014620/175026701-d646b860-cbbb-4e82-af7b-3215328136b9.png)
-## 使用gem
+　　[rubyクイズアプリケーション詳細設計２.pdf](https://github.com/hassy1220/Quiz/files/8973170/ruby.pdf)
+
+### テーブル定義書
+　  [Rubyテーブル定義書.pdf](https://github.com/hassy1220/Quiz/files/8973178/Ruby.pdf)
+
+### 使用gem
   　*devise--ログイン機能実装の為*
   　*pry_rails---デバックツール*
   　*devise-i18n---Railsを日本語で扱う為*
