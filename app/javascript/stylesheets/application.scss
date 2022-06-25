@@ -55,6 +55,7 @@ footer {
   display: flex;
   flex-wrap: wrap;         /*折り返し有り・複数行*/
   justify-content: center;
+  min-height: 50vh;
 }
 
 .quiz_show{
