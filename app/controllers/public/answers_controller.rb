@@ -18,8 +18,12 @@ class Public::AnswersController < ApplicationController
     end
     @score = @true_count.to_f / @question_count * 100
 
-      Answer.create(customer_id: current_customer.id,score: @score,quiz_id: quiz.id)
-      redirect_to public_quiz_result_path(quiz.id)
+    Answer.create(customer_id: current_customer.id,score: @score,quiz_id: quiz.id)
+    if current_customer.answers.where(quiz_id: quiz.id).count > 4
+      current_customer.answers.where(quiz_id: quiz.id).first.destroy
+    end
+
+    redirect_to public_quiz_result_path(quiz.id)
   end
 
   def result
