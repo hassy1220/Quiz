@@ -22,7 +22,6 @@ class Public::QuestionsController < ApplicationController
     end
     if params[:step] == "next"
       @question = @quiz.questions.where("id > ?", @question.id).order("id ASC").first
-      # @question = @quiz.questions.includes(:quiz).where("id > ?", @question.id).order("id ASC").first
       @answer1 = @question.choices.first
       @answer2 = @question.choices.second
       @answer3 = @question.choices.third

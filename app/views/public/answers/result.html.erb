@@ -29,7 +29,9 @@
              <td style="width: 45%">
                <%= correct_answer.body %><br>
                <% if correct_answer.image.attached? %>
+               <div class="image-wrap text-center">
                  <%= image_tag(correct_answer.image) %>
+               </div>
                <% end %>
              </td>
              <td style="width: 45%"><%= correct_answer.choices.find_by(answer: true).body %></td>

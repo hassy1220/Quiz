@@ -3,12 +3,12 @@
       <%= form_with url: public_quiz_answers_path(@quiz.id),id: "form_id" do |f| %>
            <div id = "final_answer">
               <div class="row">
-                <div class="col-6 p-5 title_image">
+                <div class="col-md-6 p-5 title_image">
                   <div id = "title_question">
                     <%= render"public/questions/title",question: @question %>
                   </div>
                 </div>
-                <div class="col-6 question_field">
+                <div class="col-md-6 question_field">
                   <div>
                     <div id = "first_question" class="d-flex align-items-center justify-content-center" style="height:20vh">
                        <%= render"public/questions/show",answer: @answer1,quiz: @quiz,question: @question,f: f %>
