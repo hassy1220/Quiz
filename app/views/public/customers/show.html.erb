@@ -13,13 +13,18 @@
             <% end %>
         <% end %>
 
-        <h1>マイページ</h1>
+        <h1 class="text-center">マイページ</h1>
         <p class="text-center">
           名前：<%= @customer.name %>
           <% if @customer.name != "guestuser" %>
             <%= link_to"編集",edit_public_customers_path,class:"btn btn-success ml-5" %>
           <% end %>
         </p>
+        <% unless @only_answer.present? %>
+        <div>
+          <p class="text-center">回答履歴なし。クイズにチャレンジしましょう！</p>
+        </div>
+        <% end %>
         <% @only_answer.each do |answer| %>
           <table class="table text-center">
             <tr>

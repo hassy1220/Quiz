@@ -21,10 +21,11 @@ body{
 }
 
 .image-wrap img{
-  max-width: 100%;
+  // max-width: 100%;
+  width: 100%;
   padding: 10px;
   background: rgba(255, 255, 128, .5);
-  max-height: 300px;
+  max-height: 40vh;
 }
 
 // footerをヘッダー下部に固定、高さ可変対応。

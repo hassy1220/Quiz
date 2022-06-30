@@ -15,6 +15,7 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     @answers = @customer.answers.where(quiz_id: params[:key].to_i).order("created_at DESC")
     @chart_answer = @answers.map{|answer|answer.score}
+    @quiz = Quiz.find(params[:key])
   end
 
   def edit
